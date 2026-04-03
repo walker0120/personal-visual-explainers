@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta property="og:title" content="パーソナル図解スキル作成の工夫">
+  <meta property="og:description" content="出力が遅かった問題を、内容の絞り込みと穴埋めテンプレートで解決したプロセス">
+  <meta property="og:type" content="article">
+  <title>パーソナル図解スキル作成の工夫</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ads: {
+              bg: '#FFFFFF',
+              surface: '#F8FAFC',
+              hover: '#F1F5F9',
+              border: '#E2E8F0',
+              accent: '#3B82F6',
+              'accent-light': '#2563EB',
+              text: '#1E293B',
+              muted: '#64748B',
+              dim: '#94A3B8',
+              positive: '#10B981',
+              negative: '#EF4444',
+              warning: '#F59E0B',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans JP"', '"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', '"Yu Gothic UI"', '"Meiryo"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { border-top: none !important; }
+      .rounded-xl { break-inside: avoid; }
+      .md\:flex-row { flex-direction: row !important; }
+      .md\:hidden { display: none !important; }
+      .hidden.md\:block { display: block !important; }
+      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+      .bg-clip-text.text-transparent {
+        -webkit-background-clip: initial !important;
+        background-clip: initial !important;
+        color: #2563EB !important;
+        -webkit-text-fill-color: #2563EB !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-ads-bg text-slate-600 antialiased leading-relaxed border-t-4 border-ads-accent">
+  <div class="no-print max-w-3xl mx-auto px-5 pt-2 flex justify-end">
+    <button onclick="window.print()" class="flex items-center gap-1.5 text-xs text-ads-dim hover:text-ads-accent transition-colors cursor-pointer">
+      <i data-lucide="download" class="w-3.5 h-3.5"></i>
+      PDF
+    </button>
+  </div>
+  <main class="max-w-3xl mx-auto px-5 py-10 md:py-16">
+
+    <!-- ヒーロー -->
+    <div class="mb-14">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-xs font-bold bg-ads-accent text-white px-3 py-1 rounded-full">スキル設計</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black text-ads-text leading-tight mb-4">
+        パーソナル図解スキル<br>作成の工夫
+      </h1>
+      <p class="text-lg text-ads-muted mb-8">
+        「遅すぎる」という問題を、<strong class="text-ads-text">2つの改善</strong>で解決するまでのプロセス
+      </p>
+
+      <!-- 一枚絵サマリー: Before → 工夫 → After -->
+      <div class="bg-ads-surface rounded-2xl p-6 border border-ads-border">
+        <p class="text-xs font-bold text-ads-dim mb-4 uppercase tracking-widest">ひとことで言えば──</p>
+        <p class="text-base font-bold text-ads-text mb-6">
+          出力内容を絞り込み、穴埋めテンプレートを作ることで<br>
+          <span class="text-ads-accent">HTMLゼロから設計する手間をなくした</span>
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center gap-3">
+          <!-- Before -->
+          <div class="flex-1 bg-red-50 border border-red-200 rounded-xl p-4 text-center w-full">
+            <i data-lucide="hourglass" class="w-8 h-8 text-red-400 mx-auto mb-2"></i>
+            <div class="text-sm font-bold text-red-700 mb-1">Before</div>
+            <div class="text-xs text-red-600">内容が多すぎる<br>HTMLをゼロから設計<br>→ 出力が遅い</div>
+          </div>
+
+          <div class="flex flex-col items-center gap-1 text-ads-dim">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden md:block"></i>
+            <i data-lucide="arrow-down" class="w-6 h-6 md:hidden"></i>
+            <span class="text-xs font-bold text-ads-accent">2つの工夫</span>
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden md:block"></i>
+            <i data-lucide="arrow-down" class="w-6 h-6 md:hidden"></i>
+          </div>
+
+          <!-- 工夫 -->
+          <div class="flex-1 bg-blue-50 border border-blue-200 rounded-xl p-4 w-full">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-xs text-blue-700">
+                <i data-lucide="scissors" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="font-bold">① 情報を絞る</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-blue-700">
+                <i data-lucide="layout-template" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="font-bold">② テンプレート化</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center gap-1 text-ads-dim">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden md:block"></i>
+            <i data-lucide="arrow-down" class="w-6 h-6 md:hidden"></i>
+          </div>
+
+          <!-- After -->
+          <div class="flex-1 bg-green-50 border border-green-200 rounded-xl p-4 text-center w-full">
+            <i data-lucide="zap" class="w-8 h-8 text-green-500 mx-auto mb-2"></i>
+            <div class="text-sm font-bold text-green-700 mb-1">After</div>
+            <div class="text-xs text-green-600">データを埋めるだけ<br>設計コスト ゼロ<br>→ 時間短縮</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Section 1: 最初の壁 ─── -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-red-500"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-ads-text">最初にぶつかった壁</h2>
+          <p class="text-sm text-ads-muted">なぜ出力に時間がかかっていたのか</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <!-- 問題1 -->
+        <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center flex-shrink-0">1</span>
+            <span class="font-bold text-red-800 text-sm">出力内容が多すぎる</span>
+          </div>
+          <p class="text-xs text-red-700 leading-relaxed">
+            副作用・禁忌・適応・用量・たとえ話…と全部盛りにしていた。<br>
+            情報が増えるほどHTMLも長くなり、AIが生成するのに時間がかかる。
+          </p>
+          <!-- アナロジー -->
+          <div class="mt-3 bg-white/70 rounded-lg p-3 border border-red-100">
+            <div class="flex items-center gap-1.5 mb-1">
+              <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-500"></i>
+              <span class="text-xs font-bold text-amber-700">たとえると</span>
+            </div>
+            <p class="text-xs text-slate-600">「聞かれてもいないことまで全部答える接客」<br>→ 丁寧だが時間がかかる</p>
+          </div>
+        </div>
+
+        <!-- 問題2 -->
+        <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center flex-shrink-0">2</span>
+            <span class="font-bold text-red-800 text-sm">HTMLをゼロから設計していた</span>
+          </div>
+          <p class="text-xs text-red-700 leading-relaxed">
+            図解ごとにレイアウト・色・構造をAIが毎回一から考えていた。<br>
+            内容が同じでもデザイン工数がかかり、品質もブレていた。
+          </p>
+          <!-- アナロジー -->
+          <div class="mt-3 bg-white/70 rounded-lg p-3 border border-red-100">
+            <div class="flex items-center gap-1.5 mb-1">
+              <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-500"></i>
+              <span class="text-xs font-bold text-amber-700">たとえると</span>
+            </div>
+            <p class="text-xs text-slate-600">「毎回ゼロから家を建てる工務店」<br>→ 設計図があれば何倍も速い</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Section 2: 工夫① 情報を絞る ─── -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="scissors" class="w-5 h-5 text-blue-500"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-ads-text">工夫① 出す情報を絞り込む</h2>
+          <p class="text-sm text-ads-muted">Cursorと相談して「本当に必要な情報」だけに絞った</p>
+        </div>
+      </div>
+
+      <!-- Before/After 対比 -->
+      <div class="grid md:grid-cols-2 gap-4 mb-5">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div class="text-xs font-bold text-slate-500 mb-3 flex items-center gap-1.5">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-400"></i> 改善前（全部盛り）
+          </div>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-slate-500 line-through">
+              <i data-lucide="minus" class="w-3 h-3 flex-shrink-0"></i>副作用（全件）
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-500 line-through">
+              <i data-lucide="minus" class="w-3 h-3 flex-shrink-0"></i>薬の歴史・開発背景
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-500 line-through">
+              <i data-lucide="minus" class="w-3 h-3 flex-shrink-0"></i>詳細な作用機序
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-500 line-through">
+              <i data-lucide="minus" class="w-3 h-3 flex-shrink-0"></i>禁忌の詳細リスト
+            </li>
+            <li class="flex items-center gap-2 text-xs text-slate-500 line-through">
+              <i data-lucide="minus" class="w-3 h-3 flex-shrink-0"></i>たとえ話・キャラクター解説
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5">
+          <div class="text-xs font-bold text-blue-600 mb-3 flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-blue-500"></i> 改善後（必要最小限）
+          </div>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-xs text-blue-700 font-medium">
+              <i data-lucide="check" class="w-3 h-3 flex-shrink-0 text-blue-500"></i>患者指導 3点（各薬）
+            </li>
+            <li class="flex items-center gap-2 text-xs text-blue-700 font-medium">
+              <i data-lucide="check" class="w-3 h-3 flex-shrink-0 text-blue-500"></i>比較表 5〜8行
+            </li>
+            <li class="flex items-center gap-2 text-xs text-blue-700 font-medium">
+              <i data-lucide="check" class="w-3 h-3 flex-shrink-0 text-blue-500"></i>30秒まとめ 3項目
+            </li>
+            <li class="flex items-center gap-2 text-xs text-blue-700 font-medium">
+              <i data-lucide="check" class="w-3 h-3 flex-shrink-0 text-blue-500"></i>緊急症状 6項目
+            </li>
+          </ul>
+          <div class="mt-3 pt-3 border-t border-blue-200 text-xs text-blue-600">
+            → 構造が固定され、AIが迷わなくなった
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+        <i data-lucide="message-circle" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+        <p class="text-xs text-amber-800">
+          <strong>Cursorとの相談で気づいたこと：</strong>
+          薬剤師がすでに知っている情報・添付文書で確認できる情報は図解に入れなくていい。
+          「患者に口頭で説明するとき何が必要か」に絞ると情報量が3分の1になった。
+        </p>
+      </div>
+    </div>
+
+    <!-- ─── Section 3: 工夫② テンプレート化 ─── -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="layout-template" class="w-5 h-5 text-blue-500"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-ads-text">工夫② 穴埋めテンプレートを作る</h2>
+          <p class="text-sm text-ads-muted">構造を固定して、AIはデータを埋めるだけにした</p>
+        </div>
+      </div>
+
+      <!-- テンプレートの仕組み図 -->
+      <div class="bg-ads-surface border border-ads-border rounded-xl p-5 mb-5">
+        <div class="text-xs font-bold text-ads-dim mb-4 uppercase tracking-wider">仕組み</div>
+
+        <div class="flex flex-col md:flex-row items-start gap-4">
+          <!-- Before: ゼロから -->
+          <div class="flex-1 w-full">
+            <div class="text-xs font-bold text-slate-500 mb-2 flex items-center gap-1">
+              <i data-lucide="x-circle" class="w-3.5 h-3.5 text-red-400"></i> 以前
+            </div>
+            <!-- ターミナル風のエディタUI -->
+            <div class="bg-slate-800 rounded-lg overflow-hidden text-xs font-mono">
+              <div class="bg-slate-700 px-3 py-1.5 flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                <span class="ml-2 text-slate-400 text-xs">生成中...</span>
+              </div>
+              <div class="p-3 space-y-1 text-slate-300">
+                <div class="text-green-400">AI が考える:</div>
+                <div class="text-slate-400">・レイアウトどうする？</div>
+                <div class="text-slate-400">・色は何色？</div>
+                <div class="text-slate-400">・カードの構造は？</div>
+                <div class="text-slate-400">・Tailwind クラスは？</div>
+                <div class="text-yellow-400 mt-2">→ 毎回ゼロから設計</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center self-center text-ads-dim mx-2">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden md:block"></i>
+            <i data-lucide="arrow-down" class="w-6 h-6 md:hidden"></i>
+          </div>
+
+          <!-- After: テンプレート -->
+          <div class="flex-1 w-full">
+            <div class="text-xs font-bold text-blue-600 mb-2 flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500"></i> テンプレート方式
+            </div>
+            <div class="bg-slate-800 rounded-lg overflow-hidden text-xs font-mono">
+              <div class="bg-slate-700 px-3 py-1.5 flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                <span class="ml-2 text-slate-400 text-xs">base.html</span>
+              </div>
+              <div class="p-3 space-y-1">
+                <div class="text-slate-300"><span class="text-slate-500">&lt;h1&gt;</span><span class="text-yellow-300">{{薬A}}</span> vs <span class="text-yellow-300">{{薬B}}</span><span class="text-slate-500">&lt;/h1&gt;</span></div>
+                <div class="text-slate-300"><span class="text-slate-500">&lt;p&gt;</span><span class="text-yellow-300">{{まとめ1文}}</span><span class="text-slate-500">&lt;/p&gt;</span></div>
+                <div class="text-slate-300"><span class="text-slate-500">&lt;td&gt;</span><span class="text-yellow-300">{{薬A比較1}}</span><span class="text-slate-500">&lt;/td&gt;</span></div>
+                <div class="text-green-400 mt-2">→ AIは値を埋めるだけ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 効果の数字 -->
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-ads-surface border border-ads-border rounded-xl p-4 text-center">
+          <div class="text-2xl font-black text-ads-accent mb-1">0</div>
+          <div class="text-xs text-ads-muted">レイアウト設計回数</div>
+          <div class="text-xs text-ads-dim mt-1">（テンプレートが固定）</div>
+        </div>
+        <div class="bg-ads-surface border border-ads-border rounded-xl p-4 text-center">
+          <div class="text-2xl font-black text-green-600 mb-1">30</div>
+          <div class="text-xs text-ads-muted">プレースホルダー数</div>
+          <div class="text-xs text-ads-dim mt-1">（埋めるだけ）</div>
+        </div>
+        <div class="bg-ads-surface border border-ads-border rounded-xl p-4 text-center">
+          <div class="text-2xl font-black text-amber-500 mb-1">1回</div>
+          <div class="text-xs text-ads-muted">Web検索（最大）</div>
+          <div class="text-xs text-ads-dim mt-1">（情報提供があれば0回）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Section 4: 結果 ─── -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="trending-up" class="w-5 h-5 text-green-500"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-ads-text">2つの工夫で変わったこと</h2>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-start gap-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+          <div>
+            <p class="text-sm font-bold text-green-800">AIが「何を出すか」ではなく「どの値を入れるか」だけ考えればよくなった</p>
+            <p class="text-xs text-green-700 mt-1">判断コストが減った分、生成が速くなった</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+          <div>
+            <p class="text-sm font-bold text-green-800">図解のデザインが毎回同じになり、品質がブレなくなった</p>
+            <p class="text-xs text-green-700 mt-1">「前回と見た目が違う」という問題がなくなった</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+          <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+          <div>
+            <p class="text-sm font-bold text-green-800">薬剤師が情報を持っていればWeb検索ゼロで生成できる</p>
+            <p class="text-xs text-green-700 mt-1">プロフェッショナルの知識がある現場では最速ルートを使えるようになった</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Section 5: 今後の課題 ─── -->
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="flag" class="w-5 h-5 text-amber-500"></i>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-ads-text">今後の課題</h2>
+          <p class="text-sm text-ads-muted">まだ残っているボトルネック</p>
+        </div>
+      </div>
+
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-4">
+        <div class="flex items-center gap-3 mb-4">
+          <i data-lucide="clock" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+          <p class="text-sm font-bold text-amber-800">もっと早く出力できないか</p>
+        </div>
+
+        <!-- 残っているボトルネック -->
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 bg-white/70 rounded-lg p-3 border border-amber-100">
+            <span class="text-xs font-bold bg-amber-400 text-white px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">残課題①</span>
+            <div>
+              <p class="text-xs font-bold text-amber-800">Web検索（1回）の時間が残っている</p>
+              <p class="text-xs text-amber-700 mt-0.5">薬剤師が情報を入力フォーム形式で渡せれば検索ゼロにできる</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white/70 rounded-lg p-3 border border-amber-100">
+            <span class="text-xs font-bold bg-amber-400 text-white px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">残課題②</span>
+            <div>
+              <p class="text-xs font-bold text-amber-800">テンプレートが比較カード（2薬）のみ</p>
+              <p class="text-xs text-amber-700 mt-0.5">1剤の副作用説明・用法説明用テンプレートはまだない</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white/70 rounded-lg p-3 border border-amber-100">
+            <span class="text-xs font-bold bg-amber-400 text-white px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">残課題③</span>
+            <div>
+              <p class="text-xs font-bold text-amber-800">デプロイ（surge.sh）の10〜20秒</p>
+              <p class="text-xs text-amber-700 mt-0.5">ネットワーク依存のため短縮が難しい。ローカル確認で代替できるか検討中</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 今後の方向性 -->
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
+        <i data-lucide="compass" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <p class="text-xs font-bold text-blue-800 mb-1">次のアクション候補</p>
+          <p class="text-xs text-blue-700">
+            薬の情報を構造化して渡す入力フォーム（またはプロンプトテンプレート）を作ることで、
+            検索ゼロ・即時生成の仕組みを目指す。
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer class="max-w-3xl mx-auto px-5 pb-10 pt-6 border-t border-ads-border/30">
+    <p class="text-xs text-ads-dim text-center">AI-Driven School の図解ツールで作成</p>
+  </footer>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

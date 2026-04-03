@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レキサルティ vs アリピプラゾール｜服薬指導図解</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .header-gradient { background: linear-gradient(135deg, #0f766e, #0369a1); }
+
+    .section-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .term-explain {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-left: 4px solid #14b8a6;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .term-word { color: #0f766e; }
+
+    .char-bubble {
+      position: relative;
+      padding: 1.25rem;
+      border-radius: 1rem;
+      margin-left: 0.75rem;
+    }
+    .char-bubble::before {
+      content: '';
+      position: absolute;
+      left: -10px; top: 20px;
+      border-width: 10px;
+      border-style: solid;
+    }
+    .rookie-bubble {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 2px solid #f59e0b;
+    }
+    .rookie-bubble::before { border-color: transparent #f59e0b transparent transparent; }
+    .senior-bubble {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 2px solid #14b8a6;
+    }
+    .senior-bubble::before { border-color: transparent #14b8a6 transparent transparent; }
+
+    .drug-card-aripiprazole {
+      background: linear-gradient(135deg, #f0fdfa, #ccfbf1);
+      border: 2px solid #14b8a6;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .drug-card-rexulti {
+      background: linear-gradient(135deg, #faf5ff, #ede9fe);
+      border: 2px solid #8b5cf6;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #dc2626;
+      padding: 1.5rem; border-radius: 0.75rem;
+    }
+
+    /* パンダアバター用 */
+    .avatar-rookie, .avatar-senior {
+      width: 64px; height: 64px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-8">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="flex items-center gap-2 mb-2 opacity-80">
+      <i data-lucide="pill" class="w-5 h-5"></i>
+      <span class="text-sm font-medium">服薬指導図解 ／ 非定型抗精神病薬</span>
+    </div>
+    <h1 class="text-3xl font-bold mb-1">レキサルティ vs アリピプラゾール</h1>
+    <p class="text-sm opacity-80">患者さんへの説明に使える　使い分けと指導のポイント</p>
+    <div class="mt-4 no-print">
+      <a href="./quick-card.html"
+        class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white text-xs px-4 py-2 rounded-lg transition">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-yellow-300"></i>
+        クイックカード（印刷用）を見る
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-8">
+
+  <!-- 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-2xl p-5 mb-8">
+    <div class="flex items-center gap-2 mb-4">
+      <i data-lucide="zap" class="w-5 h-5 text-yellow-300"></i>
+      <span class="font-bold text-sm tracking-wide">この図解の30秒まとめ</span>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3">
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold text-sm mb-1">① 同じ系統・別の薬</div>
+        <div class="text-xs opacity-90 leading-relaxed">どちらもドパミンD2受容体の「調整役」として働く非定型抗精神病薬。ただし受容体への作用と適応症に違いがある</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold text-sm mb-1">② アカシジアは特に注意</div>
+        <div class="text-xs opacity-90 leading-relaxed">特にアリピプラゾールで「そわそわ・じっとできない」症状が5%以上に出る。切り替え前後も含め継続して確認が必要</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold text-sm mb-1">③ 適応症が一部異なる</div>
+        <div class="text-xs opacity-90 leading-relaxed">双極性障害・小児ASDはアリピプラゾールの適応。認知症BPSD関連行動はレキサルティの適応。うつ病はどちらも抗うつ薬との併用が前提</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- キャラクター導入 -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-amber-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="users" class="w-5 h-5 text-amber-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">まずはここから確認しよう</h2>
+    </div>
+
+    <!-- ルーキー -->
+    <div class="flex items-start gap-4 mb-6">
+      <svg class="avatar-rookie" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <!-- 白衣 -->
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#fbbf24" opacity="0.3"/>
+        <!-- 体 -->
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <!-- 顔 -->
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <!-- 目（困り顔） -->
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <!-- 眉（困り） -->
+        <path d="M21.5 17.5 Q25 15.5 28.5 17.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17.5 Q39 15.5 42.5 17.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <!-- 鼻 -->
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <!-- 口（少し不安げ） -->
+        <path d="M27 31.5 Q32 29.5 37 31.5" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- 耳 -->
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <!-- 名札 -->
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#fbbf24"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">ROOKIE</text>
+      </svg>
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          センパイ、患者さんに「前のエビリファイからレキサルティに変わりました」って説明するとき、何が違うのかうまく説明できなくて…
+        </p>
+      </div>
+    </div>
+
+    <!-- センパイ -->
+    <div class="flex items-start gap-4 mb-6">
+      <svg class="avatar-senior" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <!-- 白衣 -->
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#0d9488" opacity="0.25"/>
+        <!-- 聴診器 -->
+        <path d="M22 44 Q18 50 22 54 Q26 58 30 54" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="54" r="2.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+        <!-- 体 -->
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <!-- 顔 -->
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <!-- 目（落ち着いた表情） -->
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <!-- 眉（落ち着き） -->
+        <path d="M21.5 17 Q25 16 28.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17 Q39 16 42.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- 鼻 -->
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <!-- 口（穏やかな微笑み） -->
+        <path d="M27 30 Q32 33.5 37 30" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- 耳 -->
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <!-- 名札 -->
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#0d9488"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">SENIOR</text>
+      </svg>
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          いい質問ですね、ルーキーさん。まず「なぜ変わったのか」が一番大事です。薬の仕組みから整理しましょう。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 1: 薬の仕組みをわかりやすく -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-teal-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="brain" class="w-5 h-5 text-teal-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">この薬たち、どう働くの？</h2>
+    </div>
+
+    <!-- たとえ話 -->
+    <div class="term-explain mb-6">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="lightbulb" class="w-4 h-4 text-teal-600"></i>
+        <span class="font-bold text-teal-800 text-sm">患者さんへのたとえ話</span>
+      </div>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        脳の中に「ドパミン」というメッセージを送る係がいます。このメッセージが<strong>多すぎると精神症状</strong>が出やすく、<strong>少なすぎると気分が下がり</strong>ます。<br><br>
+        アリピプラゾールもレキサルティも、ドパミンの「<strong>調整役</strong>」として働く薬です。多ければ抑えて、少なければ補う——このバランスを整えます。<br><br>
+        ただし、レキサルティはセロトニン（気分や不安に関わる別のメッセージ係）への作用が強くなっていて、より<strong>気分の安定に特化</strong>した調整をします。
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="drug-card-aripiprazole">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+            <i data-lucide="pill" class="w-4 h-4 text-white"></i>
+          </div>
+          <div>
+            <div class="font-bold text-teal-800">アリピプラゾール</div>
+            <div class="text-xs text-teal-600">エビリファイ等・後発品あり</div>
+          </div>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+            <span>D2受容体への作用がやや強め</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+            <span>統合失調症・双極性障害・うつ病・小児ASDに適応</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+            <span>錠・散・OD錠・内用液と剤形が豊富</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>アカシジアが出やすい（5%以上）</span>
+          </li>
+        </ul>
+      </div>
+      <div class="drug-card-rexulti">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+            <i data-lucide="pill" class="w-4 h-4 text-white"></i>
+          </div>
+          <div>
+            <div class="font-bold text-purple-800">レキサルティ</div>
+            <div class="text-xs text-purple-600">ブレクスピプラゾール・先発品のみ</div>
+          </div>
+        </div>
+        <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5"></i>
+            <span>5-HT1A（セロトニン）への作用が強く気分安定に特化</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5"></i>
+            <span>統合失調症・うつ病（抗うつ薬との併用）・認知症BPSDに適応</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5"></i>
+            <span>OD錠のみ（水なし服用可）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>α遮断による起立性低血圧・CYP相互作用に注意</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- センパイ解説 -->
+    <div class="flex items-start gap-4">
+      <svg class="avatar-senior" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#0d9488" opacity="0.25"/>
+        <path d="M22 44 Q18 50 22 54 Q26 58 30 54" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="54" r="2.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <path d="M21.5 17 Q25 16 28.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17 Q39 16 42.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <path d="M27 30 Q32 33.5 37 30" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#0d9488"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">SENIOR</text>
+      </svg>
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          患者さんには「脳のバランス調整役が変わりましたが、目的は同じです」と伝えると安心してもらいやすいですよ。細かい仕組みより「何のための薬か」を最初に伝えるのがポイントです。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2: 適応の違いと使い分け -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-blue-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-5 h-5 text-blue-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">適応と使い分け</h2>
+    </div>
+
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="bg-gray-50">
+            <th class="p-3 text-left font-bold text-gray-500 border-b border-gray-200">適応・特徴</th>
+            <th class="p-3 text-center font-bold text-teal-700 bg-teal-50 border-b border-teal-200">アリピプラゾール</th>
+            <th class="p-3 text-center font-bold text-purple-700 bg-purple-50 border-b border-purple-200">レキサルティ</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-3 font-medium text-gray-700">統合失調症</td>
+            <td class="p-3 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-3 text-center bg-purple-50 text-green-700 font-medium">✓ 適応あり</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">うつ病・うつ状態<br><span class="text-gray-400 font-normal text-xs">（抗うつ薬との併用。単独使用は非適応）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-green-700 font-medium">✓ SSRI/SNRIと併用</td>
+            <td class="p-3 text-center bg-purple-50 text-green-700 font-medium">✓ SSRI/SNRI/ミルタザピンと併用</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">双極性障害（躁症状）</td>
+            <td class="p-3 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-3 text-center bg-purple-50 text-gray-400">－ 適応なし</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">小児ASD<br><span class="text-gray-400 font-normal text-xs">（易刺激性への適応）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-3 text-center bg-purple-50 text-gray-400">－ 適応なし</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">認知症BPSD<br><span class="text-gray-400 font-normal text-xs">（過活動・攻撃的言動）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-gray-400">－ 適応なし</td>
+            <td class="p-3 text-center bg-purple-50 text-green-700 font-medium">✓ 適応あり（条件あり）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">剤形の種類</td>
+            <td class="p-3 text-center bg-teal-50">錠・散・OD錠・内用液など</td>
+            <td class="p-3 text-center bg-purple-50">OD錠のみ（0.5/1/2mg）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">後発品（ジェネリック）</td>
+            <td class="p-3 text-center bg-teal-50 text-green-700 font-medium">✓ あり</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">先発品のみ（2026年3月時点）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ルーキー気づき -->
+    <div class="flex items-start gap-4">
+      <svg class="avatar-rookie" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#fbbf24" opacity="0.3"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <!-- 目（驚き・気づき） -->
+        <ellipse cx="25" cy="23" rx="4.5" ry="5" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="4.5" ry="5" fill="#1f2937"/>
+        <circle cx="26.5" cy="21.5" r="1.5" fill="white"/>
+        <circle cx="40.5" cy="21.5" r="1.5" fill="white"/>
+        <!-- 眉（驚き） -->
+        <path d="M21 15.5 Q25 13 28.5 15.5" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 15.5 Q39 13 42.5 15.5" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27.5" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="27" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="27" r="0.9" fill="white"/>
+        <!-- 口（驚き・「お！」） -->
+        <ellipse cx="32" cy="32" rx="3.5" ry="2.5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#fbbf24"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">ROOKIE</text>
+      </svg>
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          あ！レキサルティは認知症の患者さんの興奮や攻撃的な行動に使えるんですね。それはアリピプラゾールじゃできないこと。切り替えた理由がわかってきました！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3: アカシジアについて -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-orange-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="activity" class="w-5 h-5 text-orange-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">アカシジアって何？どう伝える？</h2>
+    </div>
+
+    <div class="term-explain mb-6">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="info" class="w-4 h-4 text-teal-600"></i>
+        <span class="font-bold text-teal-800 text-sm">アカシジア（静坐不能症）</span>
+      </div>
+      <p class="text-gray-700 text-sm leading-relaxed">
+        薬の副作用で「<strong>じっとしていられない・足がむずむずして歩き回りたくなる</strong>」という感覚が出る状態です。内側から出る「落ち着かなさ」なので、患者さん自身も「不安が増した」と感じることがあります。アリピプラゾールで特に起こりやすく、添付文書では頻度5%以上に分類されています。
+      </p>
+    </div>
+
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+      <div class="font-bold text-amber-800 text-sm mb-2 flex items-center gap-2">
+        <i data-lucide="message-square" class="w-4 h-4"></i>
+        患者さんへの伝え方の例
+      </div>
+      <p class="text-sm text-gray-700 leading-relaxed">
+        「この薬を飲んでいる間に、<strong>体がそわそわして落ち着かない・じっと座っていられない</strong>という感じが出ることがあります。不安が増したように感じることもありますが、それは薬の作用かもしれません。そういう感じが出たら、自分で我慢せず必ず連絡してください。薬の量を調整したり対処ができます。」
+      </p>
+    </div>
+
+    <!-- センパイ -->
+    <div class="flex items-start gap-4">
+      <svg class="avatar-senior" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#0d9488" opacity="0.25"/>
+        <path d="M22 44 Q18 50 22 54 Q26 58 30 54" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="54" r="2.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <!-- 眉（真剣・強調） -->
+        <path d="M21 16.5 Q25 15 28.5 16.5" stroke="#1f2937" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 16.5 Q39 15 42.5 16.5" stroke="#1f2937" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <!-- 口（真剣） -->
+        <path d="M27.5 30.5 Q32 30.5 36.5 30.5" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#0d9488"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">SENIOR</text>
+      </svg>
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          アカシジアは見た目ではわからないことも多いので、患者さんが「薬が合わない」と感じて自己判断で飲むのをやめてしまうケースがあります。「出たら連絡を」と最初に伝えておくことが本当に大切です。レキサルティでも起こりえますよ。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4: 飲み方の注意 -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-sky-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="clock" class="w-5 h-5 text-sky-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">飲み方の注意点</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 mb-6">
+      <!-- アリピプラゾール -->
+      <div class="bg-teal-50 border border-teal-200 rounded-xl p-4">
+        <div class="font-bold text-teal-800 mb-3 flex items-center gap-2">
+          <i data-lucide="pill" class="w-4 h-4"></i>
+          アリピプラゾールの飲み方
+        </div>
+        <ul class="space-y-2.5 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5"></i>
+            <span>食事に関わらず飲めます（食事の影響なし）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5"></i>
+            <span>うつ病への増強療法では<strong>抗うつ薬と必ず一緒に</strong>服用（単独では有効性未確認）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>飲み始めや量が変わってから効果が安定するまで<strong>約2週間</strong>かかることがある</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>自己判断での中断・増量は危険。必ず相談を</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- レキサルティ -->
+      <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+        <div class="font-bold text-purple-800 mb-3 flex items-center gap-2">
+          <i data-lucide="pill" class="w-4 h-4"></i>
+          レキサルティ（OD錠）の飲み方
+        </div>
+        <ul class="space-y-2.5 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5"></i>
+            <span>舌の上に乗せれば唾液で溶けます。<strong>水なしOK</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+            <span><strong>寝たまま水なしで飲まない</strong>（誤嚥のリスク）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5"></i>
+            <span>うつ病では<strong>抗うつ薬（SSRI/SNRI/ミルタザピン）と必ず併用</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>他の薬との飲み合わせで効き目が大きく変わることあり（CYP2D6/3A4）。他院処方薬の変更は必ず伝える</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ルーキー質問 -->
+    <div class="flex items-start gap-4 mb-6">
+      <svg class="avatar-rookie" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#fbbf24" opacity="0.3"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <path d="M21.5 17.5 Q25 15.5 28.5 17.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17.5 Q39 15.5 42.5 17.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <path d="M27 31.5 Q32 29.5 37 31.5" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#fbbf24"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">ROOKIE</text>
+      </svg>
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          認知症の患者さんへのレキサルティの説明、飲み込み（嚥下）が心配な場合でも水なしで飲めるのはメリットですね。でも寝たままはダメなんですね…！
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4">
+      <svg class="avatar-senior" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#0d9488" opacity="0.25"/>
+        <path d="M22 44 Q18 50 22 54 Q26 58 30 54" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="54" r="2.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <path d="M21.5 17 Q25 16 28.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17 Q39 16 42.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <path d="M27 30 Q32 33.5 37 30" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#0d9488"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">SENIOR</text>
+      </svg>
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          そうです！OD錠は「溶かして飲む」ので、そのまま横になっていると口の中に薬が残って誤嚥の原因になります。「起き上がって口の中で溶かしてください」と必ず伝えましょう。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5: 副作用と患者指導ポイント -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 bg-red-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="shield-alert" class="w-5 h-5 text-red-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">副作用と患者さんへの指導ポイント</h2>
+    </div>
+
+    <!-- 副作用比較 -->
+    <div class="overflow-x-auto mb-6">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="bg-gray-50">
+            <th class="p-3 text-left font-bold text-gray-500 border-b border-gray-200">副作用・注意点</th>
+            <th class="p-3 text-center font-bold text-teal-700 bg-teal-50 border-b border-teal-200">アリピプラゾール</th>
+            <th class="p-3 text-center font-bold text-purple-700 bg-purple-50 border-b border-purple-200">レキサルティ</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-3 font-medium text-gray-700">アカシジア<br><span class="text-gray-400 font-normal text-xs">（そわそわ・静坐不能）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-red-600 font-medium">頻度高い（5%以上）</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">起こりえる（要確認）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">起立性低血圧<br><span class="text-gray-400 font-normal text-xs">（立ち上がり時のふらつき）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-gray-600">比較的少ない</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600 font-medium">注意（α1B/α2C遮断あり）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">体重増加</td>
+            <td class="p-3 text-center bg-teal-50 text-orange-600">注意（個人差大）</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">注意（個人差大）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">高血糖<br><span class="text-gray-400 font-normal text-xs">（口渇・多飲多尿）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-orange-600">定期検査が必要</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">定期検査が必要</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">眠気・鎮静</td>
+            <td class="p-3 text-center bg-teal-50 text-gray-600">比較的少ない（不眠が多いことも）</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">起こりえる（注意）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">衝動制御障害<br><span class="text-gray-400 font-normal text-xs">（病的賭博など）</span></td>
+            <td class="p-3 text-center bg-teal-50 text-orange-600">注意（家族含め確認）</td>
+            <td class="p-3 text-center bg-purple-50 text-orange-600">注意（家族含め確認）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">CYP薬物相互作用</td>
+            <td class="p-3 text-center bg-teal-50 text-orange-600">CYP3A4/2D6</td>
+            <td class="p-3 text-center bg-purple-50 text-red-600 font-medium">特に注意（用量調整の記載あり）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 患者さんへの指導文 -->
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-teal-50 border border-teal-200 rounded-xl p-4">
+        <div class="font-bold text-teal-800 mb-3 text-sm flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          アリピプラゾール 患者さんへの言葉
+        </div>
+        <div class="space-y-2 text-xs text-gray-700">
+          <div class="bg-white rounded-lg p-2.5 border border-teal-100">
+            <span class="font-bold text-teal-700 block mb-1">アカシジアの説明</span>
+            「もし体がそわそわしてじっとできない、足がむずむずするという感じが出たら、それは薬の影響かもしれません。すぐにご連絡ください。」
+          </div>
+          <div class="bg-white rounded-lg p-2.5 border border-teal-100">
+            <span class="font-bold text-teal-700 block mb-1">効果の出方</span>
+            「効果が安定してくるまで2週間ほどかかることがあります。まずは飲み続けていただくことが大切です。」
+          </div>
+          <div class="bg-white rounded-lg p-2.5 border border-teal-100">
+            <span class="font-bold text-teal-700 block mb-1">体重・血糖</span>
+            「体重の変化や、喉が異常に渇く・トイレが増えるといった変化があればお知らせください。定期的に血液検査をします。」
+          </div>
+        </div>
+      </div>
+      <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+        <div class="font-bold text-purple-800 mb-3 text-sm flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          レキサルティ 患者さんへの言葉
+        </div>
+        <div class="space-y-2 text-xs text-gray-700">
+          <div class="bg-white rounded-lg p-2.5 border border-purple-100">
+            <span class="font-bold text-purple-700 block mb-1">OD錠の飲み方</span>
+            「舌の上に乗せると自然に溶けますので、水なしで飲めます。ただし横になったまま飲まないでください。」
+          </div>
+          <div class="bg-white rounded-lg p-2.5 border border-purple-100">
+            <span class="font-bold text-purple-700 block mb-1">立ちくらみ</span>
+            「急に立ち上がるとふらつくことがあります。ゆっくり起き上がるよう心がけてください。」
+          </div>
+          <div class="bg-white rounded-lg p-2.5 border border-purple-100">
+            <span class="font-bold text-purple-700 block mb-1">他院処方・市販薬</span>
+            「他の病院で出ている薬（特に抗真菌薬や抗生剤など）が変わったときは必ず教えてください。この薬の効き目が変わることがあります。」
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6: すぐ連絡・受診 -->
+  <div class="section-card">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-9 h-9 bg-red-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="hospital" class="w-5 h-5 text-red-600"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800">こんな症状が出たらすぐに連絡・受診</h2>
+    </div>
+
+    <div class="visit-box mb-4">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <div class="font-bold text-red-700 text-sm mb-2">緊急性が高い症状</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>高熱・筋肉の異常な硬直・意識の混濁</strong><br><span class="text-xs text-gray-500">→ 悪性症候群（命に関わることがある）</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>激しい口渇・頻尿・吐き気・意識の変化</strong><br><span class="text-xs text-gray-500">→ 高血糖・糖尿病性ケトアシドーシス</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>死にたい気持ちや行動の急変</strong><br><span class="text-xs text-gray-500">→ 自殺念慮・行動化（特に若年者)</span></span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold text-orange-700 text-sm mb-2">早めに相談が必要な症状</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>じっとできない・足がむずむず</strong>（アカシジア）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>口や手足が勝手に動く</strong>（遅発性ジスキネジア）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>足のむくみ・胸の痛み・息苦しさ</strong>（血栓塞栓症）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>急なギャンブルや買い物衝動の変化</strong>（衝動制御障害）</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- センパイまとめ -->
+    <div class="flex items-start gap-4">
+      <svg class="avatar-senior" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#0d9488" opacity="0.25"/>
+        <path d="M22 44 Q18 50 22 54 Q26 58 30 54" stroke="#0d9488" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="30" cy="54" r="2.5" fill="none" stroke="#0d9488" stroke-width="1.5"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <ellipse cx="25" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <ellipse cx="39" cy="23" rx="3.5" ry="4" fill="#1f2937"/>
+        <circle cx="26" cy="22" r="1.2" fill="white"/>
+        <circle cx="40" cy="22" r="1.2" fill="white"/>
+        <path d="M21.5 17 Q25 16 28.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 17 Q39 16 42.5 17" stroke="#1f2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <path d="M27 30 Q32 33.5 37 30" stroke="#1f2937" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#0d9488"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">SENIOR</text>
+      </svg>
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          整理すると、患者さんに必ず伝えることは3つです。①「そわそわしたらすぐ連絡」、②「自己判断でやめない」、③「他の病院の薬が変わったら必ず伝える」。この3点を押さえれば、あとは患者さんに合わせて付け加えてください。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mt-6">
+      <svg class="avatar-rookie" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="44" height="22" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+        <rect x="26" y="40" width="12" height="22" fill="#fbbf24" opacity="0.3"/>
+        <ellipse cx="32" cy="38" rx="14" ry="10" fill="#1f2937"/>
+        <circle cx="32" cy="24" r="14" fill="white" stroke="#1f2937" stroke-width="2"/>
+        <!-- 目（笑顔） -->
+        <path d="M22 22 Q25 20 28 22" stroke="#1f2937" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M36 22 Q39 20 42 22" stroke="#1f2937" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- 眉（嬉しい） -->
+        <path d="M21 16.5 Q25 15 28.5 16.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M35.5 16.5 Q39 15 42.5 16.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="32" cy="27" rx="4" ry="2.5" fill="#1f2937"/>
+        <circle cx="30.5" cy="26.5" r="0.9" fill="white"/>
+        <circle cx="33.5" cy="26.5" r="0.9" fill="white"/>
+        <!-- 口（満面の笑み） -->
+        <path d="M26 30.5 Q32 35 38 30.5" stroke="#1f2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="18" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="46" cy="18" r="5" fill="#1f2937"/>
+        <circle cx="46" cy="18" r="2.5" fill="white" opacity="0.9"/>
+        <rect x="24" y="48" width="16" height="7" rx="2" fill="#fbbf24"/>
+        <text x="32" y="54" font-size="4" text-anchor="middle" fill="white" font-weight="bold">ROOKIE</text>
+      </svg>
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          ありがとうございます！2つの薬の違いと、患者さんへの伝え方がすっきりわかりました。これなら自信を持って説明できます！
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- クイックカードへのリンク -->
+  <div class="text-center py-3">
+    <a href="./quick-card.html"
+      class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white text-sm px-5 py-2.5 rounded-xl transition font-medium">
+      <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i>
+      クイックカード（印刷用・比較表のみ）を見る
+    </a>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-6 mt-2">
+  <div class="max-w-3xl mx-auto px-4 text-xs text-gray-400 space-y-1">
+    <p>服薬指導の参考資料です。最新の電子添付文書・処方内容に従ってください。</p>
+    <p>薬の情報は随時改訂されます。定期的に各製品の添付文書（PMDAサイト等）をご確認ください。</p>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

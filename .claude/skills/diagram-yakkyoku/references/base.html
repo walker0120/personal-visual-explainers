@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{薬A}} vs {{薬B}} 服薬指導クイックカード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    @media print {
+      .no-print { display: none; }
+      body { background: white; }
+      .section-card { box-shadow: none; border: 1px solid #e5e7eb; }
+    }
+    .header-gradient { background: linear-gradient(135deg, #0f766e, #0369a1); }
+    .section-card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #dc2626;
+      padding: 1.25rem; border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-6">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-1 opacity-80">
+          <i data-lucide="pill" class="w-4 h-4"></i>
+          <span class="text-xs font-medium">服薬指導クイックカード</span>
+        </div>
+        <h1 class="text-xl font-bold leading-tight">{{薬A}} vs {{薬B}}</h1>
+        <p class="text-xs opacity-80 mt-0.5">{{サブタイトル}}</p>
+      </div>
+      <button onclick="window.print()"
+        class="no-print bg-white/20 hover:bg-white/30 text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1 transition">
+        <i data-lucide="printer" class="w-4 h-4"></i> 印刷
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-5">
+
+  <!-- 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-xl p-4 mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i>
+      <span class="font-bold text-xs tracking-wide">30秒まとめ</span>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">① {{まとめ1題}}</div>
+        <div class="text-xs opacity-90">{{まとめ1文}}</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">② {{まとめ2題}}</div>
+        <div class="text-xs opacity-90">{{まとめ2文}}</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">③ {{まとめ3題}}</div>
+        <div class="text-xs opacity-90">{{まとめ3文}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 薬A 患者さんへの必須説明 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">{{薬A名}}（{{薬A一般名}}）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <!-- 必ず（赤） -->
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬A指導1タイトル}}</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬A指導1説明}}</p>
+        </div>
+      </div>
+      <!-- 重要（青） -->
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬A指導2タイトル}}</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬A指導2説明}}</p>
+        </div>
+      </div>
+      <!-- 注意（オレンジ） -->
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬A指導3タイトル}}</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬A指導3説明}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 薬B 患者さんへの必須説明 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">{{薬B名}}（{{薬B一般名}}）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <!-- 必ず（赤） -->
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬B指導1タイトル}}</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬B指導1説明}}</p>
+        </div>
+      </div>
+      <!-- 重要（青） -->
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬B指導2タイトル}}</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬B指導2説明}}</p>
+        </div>
+      </div>
+      <!-- 注意（オレンジ） -->
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">{{薬B指導3タイトル}}</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">{{薬B指導3説明}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-4 h-4 text-purple-600"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">{{薬A名}} と {{薬B名}} の比較</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs border-collapse">
+        <thead>
+          <tr class="bg-gray-50">
+            <th class="p-2 text-left font-bold text-gray-500 border-b border-gray-200">項目</th>
+            <th class="p-2 text-center font-bold text-teal-700 bg-teal-50 border-b border-teal-200">
+              {{薬A名}}<br><span class="font-normal text-teal-600 text-xs">{{薬A一般名}}</span>
+            </th>
+            <th class="p-2 text-center font-bold text-purple-700 bg-purple-50 border-b border-purple-200">
+              {{薬B名}}<br><span class="font-normal text-purple-600 text-xs">{{薬B一般名}}</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <!-- TABLE_ROWS_START: 以下の<tr>を薬ペアのデータで置き換える。
+               適応あり → <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+               適応なし → <td class="p-2 text-center bg-teal-50 text-gray-400">－ 適応なし</td>
+               注意あり → <td class="p-2 text-center bg-teal-50 text-orange-600 font-medium">注意あり</td>
+               薬Aはbg-teal-50、薬Bはbg-purple-50を使うこと -->
+          <tr>
+            <td class="p-2 font-medium text-gray-700">{{比較項目1}}</td>
+            <td class="p-2 text-center bg-teal-50">{{薬A比較1}}</td>
+            <td class="p-2 text-center bg-purple-50">{{薬B比較1}}</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">{{比較項目2}}</td>
+            <td class="p-2 text-center bg-teal-50">{{薬A比較2}}</td>
+            <td class="p-2 text-center bg-purple-50">{{薬B比較2}}</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">{{比較項目3}}</td>
+            <td class="p-2 text-center bg-teal-50">{{薬A比較3}}</td>
+            <td class="p-2 text-center bg-purple-50">{{薬B比較3}}</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">{{比較項目4}}</td>
+            <td class="p-2 text-center bg-teal-50">{{薬A比較4}}</td>
+            <td class="p-2 text-center bg-purple-50">{{薬B比較4}}</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">{{比較項目5}}</td>
+            <td class="p-2 text-center bg-teal-50">{{薬A比較5}}</td>
+            <td class="p-2 text-center bg-purple-50">{{薬B比較5}}</td>
+          </tr>
+          <!-- TABLE_ROWS_END: 行数は薬ペアに応じて増減してよい -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- すぐに受診・連絡 -->
+  <div class="visit-box mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="hospital" class="w-4 h-4 text-red-600"></i>
+      <span class="font-bold text-red-700 text-sm">こんな症状が出たらすぐに連絡・受診</span>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状1}}</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状2}}</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状3}}</span>
+        </li>
+      </ul>
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状4}}</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状5}}</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>{{緊急症状6}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- フル版リンク（フル版がある場合のみ残す。ない場合はこのブロックを削除する） -->
+  <div class="no-print text-center py-3">
+    <a href="./index.html"
+      class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm px-5 py-2.5 rounded-xl transition font-medium">
+      <i data-lucide="book-open" class="w-4 h-4"></i>
+      フル版を見る（詳しい説明・たとえ話付き）
+    </a>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-4 mt-2">
+  <div class="max-w-2xl mx-auto px-4 text-xs text-gray-400">
+    服薬指導の参考資料です。最新の電子添付文書・処方内容に従ってください。
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

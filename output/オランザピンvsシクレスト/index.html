@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オランザピンとシクレストの違い｜服薬指導図解</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    .header-gradient { background: linear-gradient(135deg, #0f766e, #0369a1); }
+
+    .section-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .term-explain {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-left: 4px solid #14b8a6;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .term-word { color: #0f766e; }
+
+    .char-bubble {
+      position: relative;
+      padding: 1.25rem;
+      border-radius: 1rem;
+      margin-left: 0.75rem;
+    }
+    .char-bubble::before {
+      content: '';
+      position: absolute;
+      left: -10px; top: 20px;
+      border-width: 10px;
+      border-style: solid;
+    }
+    .rookie-bubble {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 2px solid #f59e0b;
+    }
+    .rookie-bubble::before { border-color: transparent #f59e0b transparent transparent; }
+    .senior-bubble {
+      background: linear-gradient(135deg, #ccfbf1, #99f6e4);
+      border: 2px solid #14b8a6;
+    }
+    .senior-bubble::before { border-color: transparent #14b8a6 transparent transparent; }
+
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-danger {
+      background: linear-gradient(135deg, #7c2d12, #b91c1c);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-left: 4px solid #f97316;
+      padding: 1.25rem; border-radius: 0.75rem; margin: 1rem 0;
+    }
+    .danger-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #ef4444;
+      padding: 1.25rem; border-radius: 0.75rem; margin: 1rem 0;
+    }
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #dc2626;
+      padding: 1.25rem; border-radius: 0.75rem; margin: 1rem 0;
+    }
+
+    /* 薬カード */
+    .drug-card-olanz { background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #16a34a; }
+    .drug-card-sikurest { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 2px solid #2563eb; }
+
+    .toc {
+      position: fixed; right: 1.5rem; top: 50%;
+      transform: translateY(-50%);
+      background: white; padding: 1rem; border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      max-height: 80vh; overflow-y: auto; z-index: 50; min-width: 155px;
+    }
+    @media (max-width: 1280px) { .toc { display: none; } }
+    .toc a {
+      display: block; font-size: 0.78rem; color: #374151;
+      padding: 0.3rem 0.5rem; border-radius: 0.375rem;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .toc a:hover { background: #f0fdf4; color: #0f766e; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- 目次 -->
+<nav class="toc">
+  <p class="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wide">目次</p>
+  <a href="#summary">30秒まとめ</a>
+  <a href="#intro">はじめに</a>
+  <a href="#terms">用語を知ろう</a>
+  <a href="#key3">必ず伝える3つ</a>
+  <a href="#compare">違いを比べる</a>
+  <a href="#how-olanz">オランザピンの飲み方</a>
+  <a href="#how-sikurest">シクレストの飲み方</a>
+  <a href="#sideeffects">副作用と対処</a>
+  <a href="#contraindication">禁忌・注意</a>
+  <a href="#switch">切り替え時の注意</a>
+  <a href="#final">まとめ</a>
+</nav>
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-10">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="flex items-center gap-2 mb-3 opacity-80">
+      <i data-lucide="pill" class="w-5 h-5"></i>
+      <span class="text-sm font-medium">服薬指導図解 ｜ 抗精神病薬</span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-bold leading-snug">
+      オランザピンと<br>シクレストの違い
+    </h1>
+    <p class="mt-3 text-lg opacity-90">飲み方・副作用・注意点をまとめて確認</p>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-8">
+
+  <!-- 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-2xl p-6 mb-8 shadow-lg" id="summary">
+    <div class="flex items-center gap-2 mb-4">
+      <i data-lucide="zap" class="w-5 h-5 text-yellow-300"></i>
+      <span class="font-bold text-sm tracking-wide">30秒でわかる結論</span>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3">
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1 text-sm">① 飲み方が根本的に違う</div>
+        <div class="text-xs opacity-90">オランザピンは水で飲む。シクレストは舌の下で溶かす（飲み込むと効かない）</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1 text-sm">② 糖尿病の方はオランザピン禁忌</div>
+        <div class="text-xs opacity-90">日本の添付文書で「糖尿病・既往のある患者は禁忌」と明記されている</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1 text-sm">③ 自己判断でやめない</div>
+        <div class="text-xs opacity-90">急にやめると症状が戻ったり、体に負担がかかる。必ず医師に相談</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 導入（キャラクター対話） -->
+  <div class="section-card" id="intro">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 text-teal-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">はじめに</h2>
+        <p class="text-gray-500 text-sm">現場でよくある場面から</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-5">
+      <img src="./images/rookie_panda_worried.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          センパイ、患者さんがオランザピンからシクレストに変わったんですが、
+          どう説明すればいいか…「飲み方が変わりました」だけじゃ不安がられて。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4">
+      <img src="./images/senior_panda_serious.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          この2つ、同じ抗精神病薬でも<strong>飲み方がまったく違います</strong>。
+          シクレストは「飲む」薬じゃなくて「溶かす」薬なので、そこをしっかり伝えないと
+          患者さんが飲み込んでしまって効かなくなるんです。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 用語解説 -->
+  <div class="section-card" id="terms">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="book-open" class="w-6 h-6 text-green-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">用語を知ろう</h2>
+        <p class="text-gray-500 text-sm">患者さんへの説明前に確認</p>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-base font-bold">「非定型抗精神病薬」とは？</div>
+          <div class="text-sm mt-1 text-gray-700">
+            脳の神経伝達物質（ドパミン・セロトニンなど）の働きを調整する薬のグループ。<br>
+            統合失調症や双極性障害の症状を和らげるために使われます。
+            オランザピンもシクレストも、このグループに属します。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-base font-bold">「舌下錠」とは？</div>
+          <div class="text-sm mt-1 text-gray-700">
+            舌の裏（下）に置いて、唾液でゆっくり溶かして吸収させる薬の形。<br>
+            <span class="font-bold text-teal-700">飲み込むと効きません</span>（飲み込んだ場合、ほとんど吸収されない）。
+            シクレストがこの形です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-base font-bold">「既往（きおう）」とは？</div>
+          <div class="text-sm mt-1 text-gray-700">
+            過去にかかったことがある病気のこと。「糖尿病の既往」＝「以前に糖尿病と診断されたことがある」という意味です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-base font-bold">「錐体外路症状」とは？</div>
+          <div class="text-sm mt-1 text-gray-700">
+            手が震える・体がこわばる・じっとしていられないなど、
+            薬が脳の運動に関わる部分に影響して出る症状の総称。<br>
+            気になる動きが出たら遠慮なく薬剤師・医師に伝えましょう。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 患者さんに必ず伝える3つ -->
+  <div class="section-card" id="key3">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">患者さんに必ず伝えること</h2>
+        <p class="text-gray-500 text-sm">この3点を最初に押さえましょう</p>
+      </div>
+    </div>
+
+    <div class="grid gap-4">
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl border-l-4 border-blue-600">
+        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-gray-800">シクレストは「溶かす薬」です</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-sm">舌の下に置いて溶かします。飲み込むと吸収されず効きません。溶けるまで約2〜3分、その後10分は飲食を控えてください。唾液は飲み込んでも構いません。</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-xl border-l-4 border-red-600">
+        <div class="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-gray-800">オランザピンは糖尿病の方は使えません</span>
+            <span class="badge-danger">禁忌</span>
+          </div>
+          <p class="text-gray-600 text-sm">日本の添付文書で「糖尿病の方・既往のある方は禁忌」と明記されています。該当する方は必ず医師にお伝えください。</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl border-l-4 border-orange-500">
+        <div class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-gray-800">自己判断でやめないでください</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-sm">急にやめると症状が戻ることがあります。やめたい・つらい場合は必ず医師・薬剤師にご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section-card" id="compare">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-6 h-6 text-purple-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">2つの薬を比べてみる</h2>
+        <p class="text-gray-500 text-sm">一目でわかる違い</p>
+      </div>
+    </div>
+
+    <!-- 薬カード（横並び） -->
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="drug-card-olanz rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="pill" class="w-5 h-5 text-green-700"></i>
+          <span class="font-bold text-green-800 text-lg">オランザピン</span>
+          <span class="text-xs text-gray-500">（ジプレキサ等）</span>
+        </div>
+        <ul class="text-sm space-y-1 text-gray-700">
+          <li>● 水で飲む錠剤（OD錠など剤形は処方により異なる）</li>
+          <li>● 1日1回</li>
+          <li>● 統合失調症・双極性障害・制吐</li>
+          <li>● 糖尿病・既往は<strong class="text-red-600">禁忌</strong></li>
+        </ul>
+      </div>
+      <div class="drug-card-sikurest rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="pill" class="w-5 h-5 text-blue-700"></i>
+          <span class="font-bold text-blue-800 text-lg">シクレスト</span>
+          <span class="text-xs text-gray-500">（アセナピン）</span>
+        </div>
+        <ul class="text-sm space-y-1 text-gray-700">
+          <li>● 舌の下で溶かす（舌下錠）</li>
+          <li>● 1日2回（朝・夜）</li>
+          <li>● 統合失調症・双極性障害</li>
+          <li>● 重度の肝障害は<strong class="text-red-600">禁忌</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr>
+            <th class="p-3 text-left font-bold text-gray-500 bg-gray-100 border-b-2 border-gray-200">比較ポイント</th>
+            <th class="p-3 text-center font-bold text-green-700 bg-green-50 border-b-2 border-green-200">オランザピン</th>
+            <th class="p-3 text-center font-bold text-blue-700 bg-blue-50 border-b-2 border-blue-200">シクレスト</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-3 font-medium text-gray-700">薬の形</td>
+            <td class="p-3 text-center bg-green-50">経口錠（水で飲む）</td>
+            <td class="p-3 text-center bg-blue-50">舌下錠（舌下で溶かす）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">1日の回数</td>
+            <td class="p-3 text-center bg-green-50">1日1回</td>
+            <td class="p-3 text-center bg-blue-50">1日2回（朝・夜）</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">食事のタイミング</td>
+            <td class="p-3 text-center bg-green-50">食事に関係なく飲める</td>
+            <td class="p-3 text-center bg-blue-50">服用後10分は<br>飲食を控える</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">口の感覚</td>
+            <td class="p-3 text-center bg-green-50">特になし</td>
+            <td class="p-3 text-center bg-blue-50">しびれ・苦味が<br>出ることがある</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">特に注意する禁忌</td>
+            <td class="p-3 text-center bg-green-50 text-red-600 font-medium">糖尿病・糖尿病既往</td>
+            <td class="p-3 text-center bg-blue-50 text-red-600 font-medium">重度の肝障害</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">体重増加・代謝への影響</td>
+            <td class="p-3 text-center bg-green-50">比較的多い</td>
+            <td class="p-3 text-center bg-blue-50">あり（要モニタリング）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- オランザピンの飲み方 -->
+  <div class="section-card" id="how-olanz">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="pill" class="w-6 h-6 text-green-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">オランザピンの飲み方</h2>
+        <p class="text-gray-500 text-sm">「普通に水で飲む」錠剤です</p>
+      </div>
+    </div>
+
+    <!-- フロー -->
+    <div class="flex flex-col md:flex-row items-center gap-3 mb-6">
+      <div class="bg-green-100 px-4 py-3 rounded-xl text-center min-w-24">
+        <i data-lucide="clock" class="w-7 h-7 text-green-600 mx-auto mb-1"></i>
+        <div class="text-sm font-bold">決まった時間に</div>
+        <div class="text-xs text-gray-500">1日1回</div>
+      </div>
+      <i data-lucide="arrow-right" class="w-6 h-6 text-gray-300 hidden md:block flex-shrink-0"></i>
+      <i data-lucide="arrow-down" class="w-6 h-6 text-gray-300 md:hidden"></i>
+      <div class="bg-green-100 px-4 py-3 rounded-xl text-center min-w-24">
+        <i data-lucide="pill" class="w-7 h-7 text-green-600 mx-auto mb-1"></i>
+        <div class="text-sm font-bold">水で飲む</div>
+        <div class="text-xs text-gray-500">食事は関係なし</div>
+      </div>
+      <i data-lucide="arrow-right" class="w-6 h-6 text-gray-300 hidden md:block flex-shrink-0"></i>
+      <i data-lucide="arrow-down" class="w-6 h-6 text-gray-300 md:hidden"></i>
+      <div class="bg-green-100 px-4 py-3 rounded-xl text-center min-w-24">
+        <i data-lucide="heart-pulse" class="w-7 h-7 text-green-600 mx-auto mb-1"></i>
+        <div class="text-sm font-bold">効果が続く</div>
+        <div class="text-xs text-gray-500">半減期が長め</div>
+      </div>
+    </div>
+
+    <ul class="space-y-2 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span>PTPシート（アルミの包装）から取り出してから飲む（シートのまま飲まない）</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span>食事のタイミングは関係なし。ただし毎日同じ時間に飲む習慣をつけると飲み忘れが減る</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span>口渇・多飲・多尿が出たら血糖値が上がっているサインかもしれない。すぐに連絡を</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- シクレストの飲み方 -->
+  <div class="section-card" id="how-sikurest">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="pill" class="w-6 h-6 text-blue-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">シクレストの飲み方</h2>
+        <p class="text-gray-500 text-sm">「溶かす薬」です。飲み込まないのがポイント</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-5">
+      <img src="./images/rookie_panda_worried.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          「舌の下に置く」って、患者さんに伝えても「え、飲まないんですか？」って毎回聞かれます。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/senior_panda.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          「この薬は口の中で溶けて、舌の粘膜から吸収される薬です。飲み込むと胃では吸収されないので効きません」と伝えると理解してもらいやすいです。製品ごとに使い方が決まっているので「この薬専用のやり方」として教えましょう。
+        </p>
+      </div>
+    </div>
+
+    <!-- ステップフロー -->
+    <div class="bg-blue-50 rounded-xl p-5 mb-5 border border-blue-200">
+      <h3 class="font-bold text-blue-800 mb-4 flex items-center gap-2 text-sm">
+        <i data-lucide="list" class="w-4 h-4"></i>
+        シクレストの正しい使い方（1回の手順）
+      </h3>
+      <div class="space-y-3">
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
+          <div class="text-sm text-gray-700"><strong>乾いた手</strong>でPTPシートから取り出す（湿った手では薬が溶ける）</div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
+          <div class="text-sm text-gray-700"><strong>舌の下</strong>に置く（舌の横・頬の内側でもOK）</div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
+          <div class="text-sm text-gray-700">完全に溶けるまで<strong>噛まず・飲み込まず</strong>に待つ（約2〜3分）。唾液は飲み込んでOK</div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">4</div>
+          <div class="text-sm text-gray-700">溶けた後も<strong>10分間は飲食しない</strong>（水も含む）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="triangle-alert" class="w-5 h-5 text-orange-600"></i>
+        <span class="font-bold text-orange-700 text-sm">よくあるミス・対処</span>
+      </div>
+      <ul class="text-sm text-gray-700 space-y-1">
+        <li><strong>誤って飲み込んだ場合：</strong>その回の効果が弱くなる可能性がある。次回から舌下で正しく使うよう意識してもらう</li>
+        <li><strong>口のしびれ・苦味：</strong>薬の特性で最初に出やすい。多くは一時的。続く場合は薬剤師に相談</li>
+        <li><strong>すぐ水を飲んでしまった：</strong>吸収が下がる可能性あり。10分後以降に飲むよう伝える</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 副作用 -->
+  <div class="section-card" id="sideeffects">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="triangle-alert" class="w-6 h-6 text-orange-500"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">気をつけたい副作用</h2>
+        <p class="text-gray-500 text-sm">体験したらすぐ伝えてほしいこと</p>
+      </div>
+    </div>
+
+    <!-- 共通の副作用 -->
+    <h3 class="font-bold text-gray-700 mb-3 flex items-center gap-2 text-sm">
+      <i data-lucide="users" class="w-4 h-4 text-gray-500"></i>
+      2つの薬に共通する副作用
+    </h3>
+    <div class="grid md:grid-cols-2 gap-3 mb-6">
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="moon" class="w-4 h-4 text-amber-600"></i>
+          <span class="font-bold text-amber-800 text-sm">眠気・ふらつき</span>
+        </div>
+        <p class="text-xs text-gray-600">特に飲み始めに出やすい。運転・高所作業は控える。時間が経つと慣れることが多い</p>
+      </div>
+      <div class="bg-orange-50 border border-orange-200 rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="weight" class="w-4 h-4 text-orange-600"></i>
+          <span class="font-bold text-orange-800 text-sm">体重増加・代謝の変化</span>
+        </div>
+        <p class="text-xs text-gray-600">食欲や代謝に影響することがある。定期的な体重測定と血液検査が大切</p>
+      </div>
+      <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="activity" class="w-4 h-4 text-yellow-600"></i>
+          <span class="font-bold text-yellow-800 text-sm">手の震え・体のこわばり</span>
+        </div>
+        <p class="text-xs text-gray-600">錐体外路症状。動きにくさ・じっとできない感覚も含む。出た場合は必ず報告を</p>
+      </div>
+      <div class="bg-red-50 border border-red-200 rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="thermometer" class="w-4 h-4 text-red-600"></i>
+          <span class="font-bold text-red-800 text-sm">悪性症候群（まれ・重篤）</span>
+        </div>
+        <p class="text-xs text-gray-600">高熱・筋肉の極端な硬直・意識障害。まれだが命に関わる。すぐに救急受診</p>
+      </div>
+    </div>
+
+    <!-- それぞれの副作用 -->
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div>
+        <h3 class="font-bold text-green-700 mb-2 flex items-center gap-1 text-sm">
+          <i data-lucide="pill" class="w-4 h-4"></i> オランザピン特有
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+            <span><strong>血糖値の上昇</strong>：口渇・多飲・多尿が出たらすぐ連絡</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>便秘・口渇（抗コリン作用）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>血中脂質の上昇</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-blue-700 mb-2 flex items-center gap-1 text-sm">
+          <i data-lucide="pill" class="w-4 h-4"></i> シクレスト特有
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+            <span><strong>口のしびれ・苦味</strong>（舌下投与の特性。多くは一時的）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>めまい・立ちくらみ（起立性低血圧）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5"></i>
+            <span>口腔内の刺激感（まれに口内炎様の反応）</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visit-box">
+      <div class="flex items-center gap-2 mb-3">
+        <i data-lucide="hospital" class="w-5 h-5 text-red-600"></i>
+        <span class="font-bold text-red-700">こんな症状が出たらすぐに受診・連絡</span>
+      </div>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>口渇・頻尿・体重減少（※血糖が上がると体が糖を尿で排出しようとするため、水をたくさん飲みたくなったり尿が増えたりする。体重減少もそのサインのひとつ）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>高熱・筋肉がひどく固まる（悪性症候群の可能性）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>じっとしていられない・足がむずむずする（アカシジア）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>突然の強いめまい・意識がぼんやりする</span>
+        </li>
+      </ul>
+      <p class="mt-3 text-xs text-red-600 font-medium">
+        ※ 心配なことはいつでも薬局・処方医にご相談ください
+      </p>
+    </div>
+  </div>
+
+  <!-- 禁忌・注意 -->
+  <div class="section-card" id="contraindication">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="ban" class="w-6 h-6 text-red-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">禁忌・注意が必要な方</h2>
+        <p class="text-gray-500 text-sm">処方前に必ず確認するポイント</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="bg-red-50 border-2 border-red-300 rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="pill" class="w-4 h-4 text-green-700"></i>
+          <span class="font-bold text-red-700">オランザピン 禁忌</span>
+        </div>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span><strong>糖尿病・糖尿病の既往</strong>のある方</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span>昏睡状態・中枢神経抑制下の方</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span>成分に過敏のある方</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-red-50 border-2 border-red-300 rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="pill" class="w-4 h-4 text-blue-700"></i>
+          <span class="font-bold text-red-700">シクレスト 禁忌</span>
+        </div>
+        <ul class="text-sm space-y-2 text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span><strong>重度の肝障害</strong>のある方</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x-circle" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span>成分に過敏のある方</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box mt-4">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="triangle-alert" class="w-5 h-5 text-orange-600"></i>
+        <span class="font-bold text-orange-700 text-sm">飲み合わせに注意する薬</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
+        <div>
+          <p class="font-medium text-green-700 mb-1">オランザピン</p>
+          <ul class="space-y-1 text-xs">
+            <li>・フルボキサミン → 濃度が上がる</li>
+            <li>・シプロフロキサシン → 濃度が上がる</li>
+            <li>・カルバマゼピン・喫煙 → 濃度が下がる</li>
+            <li>・アルコール → 眠気が強まる</li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-medium text-blue-700 mb-1">シクレスト</p>
+          <ul class="space-y-1 text-xs">
+            <li>・フルボキサミン → 濃度が上がる</li>
+            <li>・QT延長を起こす薬 → 不整脈リスク</li>
+            <li>・パロキセチン → 相互作用あり</li>
+            <li>・アルコール → 眠気が強まる</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 切り替え時の注意 -->
+  <div class="section-card" id="switch">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="arrow-left-right" class="w-6 h-6 text-purple-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">切り替え時の注意</h2>
+        <p class="text-gray-500 text-sm">オランザピン→シクレストなど変更があったとき</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-5">
+      <img src="./images/rookie_panda_question.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          「量が同じなら効果も同じ」って伝えていいですか？
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-5">
+      <img src="./images/senior_panda_serious.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          それはダメです。この2つは受容体への作用も投与経路も違うので、
+          mg数が同じでも体への影響は異なります。
+          「切り替え直後は体が慣れるまで様子を見てほしい」と伝えて、
+          変化があればすぐ連絡してもらいましょう。
+        </p>
+      </div>
+    </div>
+
+    <ul class="space-y-3 text-sm text-gray-700">
+      <li class="flex items-start gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span><strong>mg数が同じでも効果は単純に比較できない</strong>。受容体の効き方・1日の回数・吸収経路が違う</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span>切り替え直後は眠気・めまい・気分の変化が出やすい期間。<strong>体調の変化はすぐ報告を</strong></span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span>シクレスト開始時は<strong>舌下服用の方法を必ず再確認</strong>する（飲み込みミスが起きやすい）</span>
+      </li>
+      <li class="flex items-start gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span>体重・血糖・脂質のモニタリングは切り替え後も継続する</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section-card" id="final">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-sky-600 rounded-xl flex items-center justify-center">
+        <i data-lucide="check-circle" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">まとめ</h2>
+        <p class="text-gray-500 text-sm">これで自信を持って説明できます</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-5">
+      <img src="./images/senior_panda.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          この2つの最大の違いは「飲み方」です。シクレストは舌下で溶かす、これだけは絶対に伝えましょう。
+          あとはオランザピンの糖尿病禁忌、どちらも急にやめない、この3点が柱です。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/rookie_panda_happy.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-sm">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          比較表とフローチャートがあるだけで、頭の中が全然違います！
+          次の患者さんにこの図解を見せながら説明してみます！
+        </p>
+      </div>
+    </div>
+
+    <!-- 薬剤師チェックリスト -->
+    <div class="bg-gradient-to-r from-teal-50 to-sky-50 p-5 rounded-xl border border-teal-200 mb-4">
+      <h3 class="font-bold text-teal-800 mb-3 flex items-center gap-2 text-sm">
+        <i data-lucide="list-checks" class="w-5 h-5"></i>
+        薬剤師チェックリスト
+      </h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>シクレストは「舌の下で溶かす薬」と説明した</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>服用後10分は飲食しないよう伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>オランザピンの糖尿病禁忌を確認した</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>眠気・ふらつき・体重増加などの副作用を伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>自己判断でやめないよう伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>受診すべき症状（悪性症候群・血糖上昇サインなど）を伝えた</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 患者さん向け行動リスト -->
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+      <h3 class="font-bold text-amber-800 mb-3 flex items-center gap-2 text-sm">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        患者さんへ：これだけ覚えてください
+      </h3>
+      <div class="mb-3">
+        <p class="text-xs font-bold text-green-700 mb-1">▶ オランザピンを飲んでいる方</p>
+        <ul class="space-y-1 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"></i>
+            <span>水をたくさん飲みたくなる・尿が増えた感じがしたら薬剤師に相談</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"></i>
+            <span>定期的な体重測定と血液検査を忘れずに</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mb-3">
+        <p class="text-xs font-bold text-blue-700 mb-1">▶ シクレストを飲んでいる方</p>
+        <ul class="space-y-1 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+            <span><strong>舌の下で溶かす。飲み込まない</strong></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+            <span>溶けた後10分は飲食しない（唾液は飲み込んでOK）</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5"></i>
+            <span>最初に口のしびれ・苦味が出ることがあるが、多くは一時的</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs font-bold text-gray-600 mb-1">▶ 共通</p>
+        <ul class="space-y-1 text-sm text-gray-700">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+            <span>急に薬をやめない。やめたいときは医師・薬剤師に相談</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+            <span>高熱・強い筋肉の硬直・じっとしていられない感じが出たらすぐ受診</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-6 mt-4">
+  <div class="max-w-3xl mx-auto px-4 text-xs text-gray-500 space-y-1">
+    <p>この図解は服薬指導の参考資料です。効能・禁忌・用法は最新の電子添付文書（PMDA）および処方内容に従ってください。</p>
+    <p>参考：PMDA 医療用医薬品 電子添付文書（ジプレキサ・シクレスト）</p>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

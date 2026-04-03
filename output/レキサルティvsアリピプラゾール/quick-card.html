@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レキサルティ vs アリピプラゾール 服薬指導クイックカード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    @media print {
+      .no-print { display: none; }
+      body { background: white; }
+      .section-card { box-shadow: none; border: 1px solid #e5e7eb; }
+    }
+    .header-gradient { background: linear-gradient(135deg, #0f766e, #0369a1); }
+    .section-card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #dc2626;
+      padding: 1.25rem; border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-6">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-1 opacity-80">
+          <i data-lucide="pill" class="w-4 h-4"></i>
+          <span class="text-xs font-medium">服薬指導クイックカード</span>
+        </div>
+        <h1 class="text-xl font-bold leading-tight">レキサルティ vs アリピプラゾール</h1>
+        <p class="text-xs opacity-80 mt-0.5">非定型抗精神病薬の使い分けと患者指導ポイント</p>
+      </div>
+      <button onclick="window.print()"
+        class="no-print bg-white/20 hover:bg-white/30 text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1 transition">
+        <i data-lucide="printer" class="w-4 h-4"></i> 印刷
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-5">
+
+  <!-- 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-xl p-4 mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i>
+      <span class="font-bold text-xs tracking-wide">30秒まとめ</span>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">① 同じ系統・別の薬</div>
+        <div class="text-xs opacity-90">どちらもD2部分アゴニスト系の非定型抗精神病薬。適応症が一部異なる</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">② アカシジアに注意</div>
+        <div class="text-xs opacity-90">特にアリピプラゾールでアカシジア頻度が高い。切り替え後も要チェック</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">③ 抗うつ薬と併用</div>
+        <div class="text-xs opacity-90">うつ病での使用は抗うつ薬との併用が前提。単独使用は非適応</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 患者さんに必ず伝えること（アリピプラゾール） -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">アリピプラゾール（エビリファイ等）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">そわそわ・じっとできない感じは薬の影響かも</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">アカシジアが起きやすい薬です。「足がむずむず」「歩き回りたい」感じが出たら我慢せず薬剤師・医師に連絡してください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">効果が安定するまで約2週間かかります</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">飲み始めや量が変わったとき、効果が実感できるまで2週間ほどかかることがあります。自己判断で量を変えないでください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">血糖値・体重の変化に注意</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">口が異常に渇く・頻繁にトイレに行く・急に体重が増えたら受診の目安。定期的な血液検査が大切です</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 患者さんに必ず伝えること（レキサルティ） -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">レキサルティ（ブレクスピプラゾール）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">OD錠は舌の上でそのまま溶かしてOK</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">水なしで服用できます。ただし「寝たまま水なしで飲む」のは誤嚥のリスクがあるため避けてください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">他の薬との飲み合わせに特に注意</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">抗真菌薬（イトラコナゾール等）や一部の抗うつ薬と飲み合わせで薬の効き目が大きく変わることがあります。他の病院で薬を変更したときは必ず伝えてください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">めまい・ふらつきに注意（特に立ち上がり時）</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">起立性低血圧が起こることがあります。急に立ち上がらず、ゆっくり動いてください。転倒・骨折の予防のためにもご家族にも伝えてください</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-4 h-4 text-purple-600"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">アリピプラゾール と レキサルティ の比較</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs border-collapse">
+        <thead>
+          <tr class="bg-gray-50">
+            <th class="p-2 text-left font-bold text-gray-500 border-b border-gray-200">項目</th>
+            <th class="p-2 text-center font-bold text-teal-700 bg-teal-50 border-b border-teal-200">アリピプラゾール<br><span class="font-normal text-teal-600 text-xs">（エビリファイ等）</span></th>
+            <th class="p-2 text-center font-bold text-purple-700 bg-purple-50 border-b border-purple-200">レキサルティ<br><span class="font-normal text-purple-600 text-xs">（ブレクスピプラゾール）</span></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-2 font-medium text-gray-700">剤形</td>
+            <td class="p-2 text-center bg-teal-50">錠・散・OD錠・内用液など</td>
+            <td class="p-2 text-center bg-purple-50">OD錠（0.5mg・1mg・2mg）</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">統合失調症</td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">✓ 適応あり</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">うつ病・うつ状態<br><span class="text-gray-400 font-normal text-xs">（既存治療で不十分）</span></td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">✓ 抗うつ薬と併用</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">✓ 抗うつ薬と併用</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">双極性障害（躁）</td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-2 text-center bg-purple-50 text-gray-400">－ 適応なし</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">小児ASD<br><span class="text-gray-400 font-normal text-xs">（易刺激性）</span></td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">✓ 適応あり</td>
+            <td class="p-2 text-center bg-purple-50 text-gray-400">－ 適応なし</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">認知症BPSD<br><span class="text-gray-400 font-normal text-xs">（過活動・攻撃的言動）</span></td>
+            <td class="p-2 text-center bg-teal-50 text-gray-400">－ 適応なし</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">✓ 適応あり</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">アカシジア頻度</td>
+            <td class="p-2 text-center bg-teal-50 text-red-600 font-medium">高い（5%以上）</td>
+            <td class="p-2 text-center bg-purple-50 text-orange-600 font-medium">あり（要注意）</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">起立性低血圧</td>
+            <td class="p-2 text-center bg-teal-50 text-gray-600">比較的少ない</td>
+            <td class="p-2 text-center bg-purple-50 text-orange-600 font-medium">注意（α遮断あり）</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">体重・代謝</td>
+            <td class="p-2 text-center bg-teal-50 text-orange-600">体重増加注意</td>
+            <td class="p-2 text-center bg-purple-50 text-orange-600">体重増加注意</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">薬の飲み合わせ</td>
+            <td class="p-2 text-center bg-teal-50 text-orange-600">CYP3A4/2D6 注意</td>
+            <td class="p-2 text-center bg-purple-50 text-red-600 font-medium">特に注意（用量調整あり）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- すぐに受診・連絡 -->
+  <div class="visit-box mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="hospital" class="w-4 h-4 text-red-600"></i>
+      <span class="font-bold text-red-700 text-sm">こんな症状が出たらすぐに連絡・受診</span>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>高熱・筋肉の硬直・意識の混濁</strong>（悪性症候群）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>激しい口渇・頻尿・吐き気</strong>（高血糖）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>全身のむくみ・息苦しさ</strong>（血栓塞栓症）</span>
+        </li>
+      </ul>
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>じっとできない・足のむずむず</strong>（アカシジア）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>口や体が勝手に動く</strong>（遅発性ジスキネジア）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>死にたい気持ち・気分の急変</strong>（自殺念慮）</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- フル版へのリンク -->
+  <div class="no-print text-center py-3">
+    <a href="./index.html"
+      class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white text-sm px-5 py-2.5 rounded-xl transition font-medium">
+      <i data-lucide="book-open" class="w-4 h-4"></i>
+      フル版を見る（詳しい説明・たとえ話・キャラクター対話付き）
+    </a>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-4 mt-2">
+  <div class="max-w-2xl mx-auto px-4 text-xs text-gray-400">
+    服薬指導の参考資料です。最新の電子添付文書・処方内容に従ってください。
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

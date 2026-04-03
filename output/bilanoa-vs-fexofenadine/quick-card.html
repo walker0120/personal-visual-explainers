@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビラノア vs アレグラ 服薬指導クイックカード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    @media print {
+      .no-print { display: none; }
+      body { background: white; }
+      .section-card { box-shadow: none; border: 1px solid #e5e7eb; }
+    }
+    .header-gradient { background: linear-gradient(135deg, #0f766e, #0369a1); }
+    .section-card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.15rem 0.55rem;
+      border-radius: 9999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #dc2626;
+      padding: 1.25rem; border-radius: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-6">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-1 opacity-80">
+          <i data-lucide="pill" class="w-4 h-4"></i>
+          <span class="text-xs font-medium">服薬指導クイックカード</span>
+        </div>
+        <h1 class="text-xl font-bold leading-tight">ビラノア vs アレグラ（フェキソフェナジン）</h1>
+        <p class="text-xs opacity-80 mt-0.5">第2世代抗ヒスタミン薬の使い分けと服薬指導ポイント</p>
+      </div>
+      <button onclick="window.print()"
+        class="no-print bg-white/20 hover:bg-white/30 text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1 transition">
+        <i data-lucide="printer" class="w-4 h-4"></i> 印刷
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-5">
+
+  <!-- 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-xl p-4 mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i>
+      <span class="font-bold text-xs tracking-wide">30秒まとめ</span>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">① 効果はビラノアが上</div>
+        <div class="text-xs opacity-90">蕁麻疹・強い症状にはビラノア。フェキソフェナジンより効果が強い</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">② ビラノアは空腹時必須</div>
+        <div class="text-xs opacity-90">食後服用で吸収が約40〜60%低下。「食前1時間前」が目安</div>
+      </div>
+      <div class="bg-white/15 rounded-lg p-2">
+        <div class="font-bold text-xs mb-0.5">③ アレグラは制限少ない</div>
+        <div class="text-xs opacity-90">食事・年齢の制限なし。ジェネリックあり。胃薬との間隔に注意</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ビラノア 患者さんへの必須説明 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">ビラノア（ビラスチン）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">食事の1時間以上前に飲んでください</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">食後に飲むと薬の吸収が約半分に落ちます。食後2時間以上経ってからでもOK。「食前1時間」を目安にしてください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">グレープフルーツジュースは一緒に飲まないで</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">グレープフルーツジュースが薬の吸収を妨げることがあります。水か白湯で服用してください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">眠気は少ないですが、最初は車の運転に注意</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">眠気の頻度は1%以下です。ただし個人差があるため、飲み始めの数日は様子を見てください</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- アレグラ（フェキソフェナジン）患者さんへの必須説明 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">アレグラ等（フェキソフェナジン）── 患者さんへの必須説明</h2>
+    </div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border-l-4 border-red-500">
+        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">1日2回、朝と夕に飲んでください</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">飲み忘れに気づいたらすぐ飲んでください。次の時間が近い場合は1回分飛ばし、2回分を一度に飲まないでください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">胃薬と同時に飲まないで</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">マグネシウム・アルミニウムを含む胃薬（酸化マグネシウム等）と同時服用で薬の吸収が約36%低下します。2時間以上間隔を空けてください</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-sm text-gray-800">果汁100%ジュースと一緒に飲まないで</span>
+            <span class="badge-note">注意</span>
+          </div>
+          <p class="text-gray-600 text-xs mt-0.5">グレープフルーツ・オレンジ・リンゴジュースで薬の吸収が下がることがあります。水か白湯で服用してください</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section-card">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-4 h-4 text-purple-600"></i>
+      </div>
+      <h2 class="font-bold text-gray-800">ビラノア と アレグラ の比較</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-xs border-collapse">
+        <thead>
+          <tr class="bg-gray-50">
+            <th class="p-2 text-left font-bold text-gray-500 border-b border-gray-200">項目</th>
+            <th class="p-2 text-center font-bold text-teal-700 bg-teal-50 border-b border-teal-200">
+              ビラノア<br><span class="font-normal text-teal-600 text-xs">ビラスチン 20mg</span>
+            </th>
+            <th class="p-2 text-center font-bold text-purple-700 bg-purple-50 border-b border-purple-200">
+              アレグラ等<br><span class="font-normal text-purple-600 text-xs">フェキソフェナジン 60mg</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-2 font-medium text-gray-700">服用回数</td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">1日1回</td>
+            <td class="p-2 text-center bg-purple-50 text-gray-600">1日2回</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">食事の影響</td>
+            <td class="p-2 text-center bg-teal-50 text-red-600 font-medium">大きい（空腹時必須）</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">ほぼなし</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">効果の強さ<br><span class="text-gray-400 font-normal text-xs">特に蕁麻疹</span></td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">強い</td>
+            <td class="p-2 text-center bg-purple-50 text-gray-600">標準</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">眠気</td>
+            <td class="p-2 text-center bg-teal-50 text-green-700 font-medium">ほぼなし（0.6%）</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">ほぼなし</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">小児への使用</td>
+            <td class="p-2 text-center bg-teal-50 text-orange-600 font-medium">15歳以上のみ</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">制限なし</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">腎機能低下</td>
+            <td class="p-2 text-center bg-teal-50 text-orange-600">中等度以上は慎重</td>
+            <td class="p-2 text-center bg-purple-50 text-orange-600">注意（用量調整あり）</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">妊婦への使用</td>
+            <td class="p-2 text-center bg-teal-50 text-orange-600">有益性が上回る場合のみ</td>
+            <td class="p-2 text-center bg-purple-50 text-orange-600">有益性が上回る場合のみ</td>
+          </tr>
+          <tr>
+            <td class="p-2 font-medium text-gray-700">ジェネリック</td>
+            <td class="p-2 text-center bg-teal-50 text-gray-400">なし</td>
+            <td class="p-2 text-center bg-purple-50 text-green-700 font-medium">あり（安価）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- すぐに受診・連絡 -->
+  <div class="visit-box mb-5">
+    <div class="flex items-center gap-2 mb-3">
+      <i data-lucide="hospital" class="w-4 h-4 text-red-600"></i>
+      <span class="font-bold text-red-700 text-sm">こんな症状が出たらすぐに連絡・受診</span>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>全身のじんましん・顔や唇の腫れ・息苦しさ</strong>（重篤なアレルギー）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>強い眠気・ふらつき・意識がもうろうとする</strong></span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>皮膚・白目が黄色くなる・強い倦怠感</strong>（肝機能障害）</span>
+        </li>
+      </ul>
+      <ul class="space-y-1.5 text-xs text-gray-700">
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>動悸・胸の不快感・脈が乱れる感じ</strong></span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>むくみが急に強くなる・尿が出にくい</strong>（腎機能悪化）</span>
+        </li>
+        <li class="flex items-start gap-1.5">
+          <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span><strong>2週間飲んでも症状が全く改善しない・悪化する</strong></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-4 mt-2">
+  <div class="max-w-2xl mx-auto px-4 text-xs text-gray-400">
+    服薬指導の参考資料です。最新の電子添付文書・処方内容に従ってください。
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

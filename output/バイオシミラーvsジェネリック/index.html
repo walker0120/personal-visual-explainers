@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バイオシミラーとジェネリック医薬品の違い｜服薬指導図解</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pharm-primary: #0f766e;
+      --pharm-secondary: #0369a1;
+      --pharm-gradient: linear-gradient(135deg, #0f766e, #0369a1);
+    }
+    body { font-family: 'Noto Sans JP', sans-serif; }
+
+    .header-gradient { background: var(--pharm-gradient); }
+
+    .section-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .term-explain {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border-left: 4px solid #14b8a6;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .term-word { color: #0f766e; }
+
+    .char-bubble {
+      position: relative;
+      padding: 1.25rem;
+      border-radius: 1rem;
+      margin-left: 0.75rem;
+    }
+    .char-bubble::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 20px;
+      border-width: 10px;
+      border-style: solid;
+    }
+    .rookie-bubble {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px solid #f59e0b;
+    }
+    .rookie-bubble::before { border-color: transparent #f59e0b transparent transparent; }
+    .senior-bubble {
+      background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
+      border: 2px solid #14b8a6;
+    }
+    .senior-bubble::before { border-color: transparent #14b8a6 transparent transparent; }
+
+    .badge-essential {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+    }
+    .badge-important {
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+    }
+    .badge-note {
+      background: linear-gradient(135deg, #6b7280, #9ca3af);
+      color: white; padding: 0.2rem 0.6rem;
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-left: 4px solid #f97316;
+      padding: 1.25rem; border-radius: 0.75rem; margin: 1rem 0;
+    }
+    .visit-box {
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-left: 4px solid #ef4444;
+      padding: 1.25rem; border-radius: 0.75rem; margin: 1rem 0;
+    }
+
+    .toc {
+      position: fixed; right: 1.5rem; top: 50%;
+      transform: translateY(-50%);
+      background: white; padding: 1rem; border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      max-height: 80vh; overflow-y: auto; z-index: 50; min-width: 160px;
+    }
+    @media (max-width: 1280px) { .toc { display: none; } }
+
+    .toc a {
+      display: block; font-size: 0.8rem; color: #374151;
+      padding: 0.35rem 0.5rem; border-radius: 0.375rem;
+      text-decoration: none; transition: background 0.15s;
+    }
+    .toc a:hover { background: #f0fdf4; color: #0f766e; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- 目次 -->
+<nav class="toc">
+  <p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">目次</p>
+  <a href="#intro">はじめに</a>
+  <a href="#terms">用語を知ろう</a>
+  <a href="#key3">患者さんへの3点</a>
+  <a href="#compare">違いを比べる</a>
+  <a href="#analogy">たとえ話</a>
+  <a href="#generic-detail">ジェネリックとは</a>
+  <a href="#biosimilar-detail">バイオシミラーとは</a>
+  <a href="#substitution">代替調剤のルール</a>
+  <a href="#immunogenicity">免疫原性とは</a>
+  <a href="#summary">まとめ</a>
+</nav>
+
+<!-- ヘッダー -->
+<header class="header-gradient text-white py-10">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="flex items-center gap-2 mb-3 opacity-80">
+      <i data-lucide="pill" class="w-5 h-5"></i>
+      <span class="text-sm font-medium">服薬指導図解</span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-bold leading-snug">
+      バイオシミラーとジェネリック<br>医薬品の違い
+    </h1>
+    <p class="mt-3 text-lg opacity-90">
+      「同じもの？別物？」患者さんの疑問にスッキリ答えられるようになる
+    </p>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-8">
+
+  <!-- ★ 30秒まとめ -->
+  <div class="bg-gradient-to-r from-teal-600 to-sky-700 text-white rounded-2xl p-6 mb-8 shadow-lg">
+    <div class="flex items-center gap-2 mb-4">
+      <i data-lucide="zap" class="w-5 h-5 text-yellow-300"></i>
+      <span class="font-bold text-sm tracking-wide">30秒でわかる結論</span>
+    </div>
+    <div class="grid md:grid-cols-3 gap-3">
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1">① 別カテゴリの薬</div>
+        <div class="text-sm opacity-90">ジェネリックとバイオシミラーは「似た立場」でも分類が違う</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1">② どちらも国が承認</div>
+        <div class="text-sm opacity-90">安全性・有効性は国の審査でしっかり確認されている</div>
+      </div>
+      <div class="bg-white/15 rounded-xl p-3">
+        <div class="font-bold mb-1">③ 代替のルールが違う</div>
+        <div class="text-sm opacity-90">バイオシミラーは医師の処方に従う。薬局が勝手に変えない</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ① 導入（キャラクター対話） -->
+  <div class="section-card" id="intro">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="message-circle" class="w-6 h-6 text-teal-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">はじめに</h2>
+        <p class="text-gray-500 text-sm">よくある現場の悩みから</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/rookie_panda_worried.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          患者さんに「ジェネリックに変えましょうか」って案内しようとしたら、
+          「あれ、私の薬ってバイオシミラーとかいうやつでしょ？同じじゃないの？」って聞かれて…
+          うまく説明できなくて困りました。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-2">
+      <img src="./images/senior_panda.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          これは混同しやすいですよね。結論から言うと、
+          <strong>「似たような存在だけど、別カテゴリの薬」</strong>なんです。
+          まず2つの言葉の意味を整理しましょう。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 用語解説ボックス -->
+  <div class="section-card" id="terms">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="book-open" class="w-6 h-6 text-green-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">用語を知ろう</h2>
+        <p class="text-gray-500 text-sm">この図解に出てくる言葉</p>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-7 h-7 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-lg font-bold">「先発医薬品」とは？</div>
+          <div class="text-base mt-1 text-gray-700">
+            最初に開発・承認されたオリジナルの薬。<br>
+            <span class="font-bold text-teal-700">「ブランド品」</span>のような存在です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-7 h-7 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-lg font-bold">「ジェネリック医薬品（後発医薬品）」とは？</div>
+          <div class="text-base mt-1 text-gray-700">
+            先発品の特許が切れた後に、<strong>同じ有効成分</strong>で作られた薬。<br>
+            化学的に<span class="font-bold text-teal-700">「まったく同一」</span>の成分を使います。
+            一般的に価格が安くなります。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-7 h-7 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-lg font-bold">「バイオシミラー（バイオ後続品）」とは？</div>
+          <div class="text-base mt-1 text-gray-700">
+            <strong>生き物の細胞</strong>を使って作るタンパク質製剤の「後続品」。<br>
+            先行品と<span class="font-bold text-teal-700">「ほぼ同等」</span>であることが国の審査で確認されています。
+            「完全に同一」ではなく「臨床的に意味のある差がない」という考え方です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-7 h-7 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-lg font-bold">「先行バイオ医薬品」とは？</div>
+          <div class="text-base mt-1 text-gray-700">
+            バイオシミラーの「元の薬」にあたるオリジナルのバイオ製剤。<br>
+            ヒュミラ・レミケード・エンブレルなど<span class="font-bold text-teal-700">抗体製剤・インスリン製剤</span>などが代表例です。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ 患者様に必ず伝えること3つ -->
+  <div class="section-card" id="key3">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-700 rounded-xl flex items-center justify-center">
+        <i data-lucide="clipboard" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">患者さんに必ず伝えること</h2>
+        <p class="text-gray-500 text-sm">この3点を押さえれば安心してもらえます</p>
+      </div>
+    </div>
+
+    <div class="grid gap-4">
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-xl border-l-4 border-red-500">
+        <div class="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-lg text-gray-800">ジェネリックとバイオシミラーは別物</span>
+            <span class="badge-essential">必ず</span>
+          </div>
+          <p class="text-gray-600 text-sm">「似たような後発品」ですが、<strong>分類が違う薬</strong>です。混同しないよう最初に伝えましょう。</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl border-l-4 border-blue-500">
+        <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-lg text-gray-800">どちらも国が承認した安全な薬</span>
+            <span class="badge-important">重要</span>
+          </div>
+          <p class="text-gray-600 text-sm">「安いから大丈夫？」という不安には、「安全性・有効性を国が審査して承認されています」と伝えましょう。</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl border-l-4 border-orange-500">
+        <div class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</div>
+        <div>
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="font-bold text-lg text-gray-800">バイオシミラーは薬局が勝手に変えられない</span>
+            <span class="badge-note">注意点</span>
+          </div>
+          <p class="text-gray-600 text-sm">ジェネリックと違い、バイオシミラーは<strong>医師の処方に従って選ぶ薬</strong>です。「薬局が勝手に変えた」という誤解を防ぎましょう。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 比較表 -->
+  <div class="section-card" id="compare">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="git-compare" class="w-6 h-6 text-purple-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">ジェネリックとバイオシミラーを比べる</h2>
+        <p class="text-gray-500 text-sm">一目でわかる違い</p>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="p-3 text-left font-bold text-gray-600 border-b-2 border-gray-200">比較ポイント</th>
+            <th class="p-3 text-center font-bold text-teal-700 bg-teal-50 border-b-2 border-teal-200">ジェネリック<br><span class="font-normal text-xs">（後発医薬品）</span></th>
+            <th class="p-3 text-center font-bold text-sky-700 bg-sky-50 border-b-2 border-sky-200">バイオシミラー<br><span class="font-normal text-xs">（バイオ後続品）</span></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="p-3 font-medium text-gray-700">薬の種類</td>
+            <td class="p-3 text-center bg-teal-50">化学的に合成できる薬<br><span class="text-xs text-gray-500">（錠剤・カプセルが多い）</span></td>
+            <td class="p-3 text-center bg-sky-50">タンパク質でできた注射薬<br><span class="text-xs text-gray-500">（注射・点滴が多い）</span></td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">作り方</td>
+            <td class="p-3 text-center bg-teal-50">化学合成</td>
+            <td class="p-3 text-center bg-sky-50">生きた細胞で製造<br><span class="text-xs text-gray-500">（細胞培養・精製）</span></td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">先発品との一致度</td>
+            <td class="p-3 text-center bg-teal-50">
+              <span class="inline-flex items-center gap-1 text-green-700 font-bold">
+                <i data-lucide="check-circle" class="w-4 h-4"></i> 同一
+              </span>
+            </td>
+            <td class="p-3 text-center bg-sky-50">
+              <span class="inline-flex items-center gap-1 text-blue-700 font-bold">
+                <i data-lucide="check" class="w-4 h-4"></i> ほぼ同等
+              </span><br>
+              <span class="text-xs text-gray-500">（臨床的に意味のある差なし）</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">承認に必要な試験</td>
+            <td class="p-3 text-center bg-teal-50">生物学的同等性試験</td>
+            <td class="p-3 text-center bg-sky-50">複数の比較試験<br><span class="text-xs text-gray-500">（品質・安全性・有効性・抗体反応）</span></td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">代替調剤</td>
+            <td class="p-3 text-center bg-teal-50">
+              <span class="text-green-700 font-medium">条件を満たせば可能</span>
+            </td>
+            <td class="p-3 text-center bg-sky-50">
+              <span class="text-red-600 font-medium">原則として薬局が<br>勝手に変えない</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium text-gray-700">患者さんへのたとえ</td>
+            <td class="p-3 text-center bg-teal-50">同じ楽譜を別のCDに焼いた</td>
+            <td class="p-3 text-center bg-sky-50">同じ曲を別のオーケストラが演奏した</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ⑤ たとえ話 -->
+  <div class="section-card" id="analogy">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-amber-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">たとえ話で理解する</h2>
+        <p class="text-gray-500 text-sm">患者さんへの説明で使えます</p>
+      </div>
+    </div>
+
+    <!-- たとえ話1 -->
+    <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-5 rounded-xl border border-teal-200 mb-4">
+      <div class="flex items-center gap-2 mb-3">
+        <i data-lucide="music" class="w-5 h-5 text-teal-600"></i>
+        <span class="font-bold text-teal-800">たとえ①：CDとオーケストラの演奏</span>
+      </div>
+      <div class="space-y-2 text-gray-700 text-sm">
+        <p><strong>ジェネリック</strong>は「同じ楽譜（化学構造）を、別のスタジオで同じように録音したCD」。<br>どのCDを聴いても、曲（有効成分）はまったく同じです。</p>
+        <p><strong>バイオシミラー</strong>は「同じ曲を別のオーケストラが演奏した録音」。<br>同じ楽譜を使っていても、演奏者（細胞）が違うと微妙な表情が変わります。でも審査で「聴き手（患者さん）にとって大切な違いはない」と確認されています。</p>
+      </div>
+    </div>
+
+    <!-- たとえ話2 -->
+    <div class="bg-gradient-to-r from-sky-50 to-blue-50 p-5 rounded-xl border border-sky-200 mb-4">
+      <div class="flex items-center gap-2 mb-3">
+        <i data-lucide="flask-conical" class="w-5 h-5 text-sky-600"></i>
+        <span class="font-bold text-sky-800">たとえ②：化学合成 vs 醸造・培養</span>
+      </div>
+      <div class="space-y-2 text-gray-700 text-sm">
+        <p><strong>ジェネリック</strong>の製造は「レシピ通りに材料を化学的に組み合わせるだけ」。何度作っても同じものが完成します。</p>
+        <p><strong>バイオシミラー</strong>の製造は「生きた酵母でお酒を醸造する」のに似ています。同じ酵母・同じ条件でも、バッチごとにわずかな違いが出ます。だから管理が複雑で、コストも高め。</p>
+      </div>
+    </div>
+
+    <!-- たとえ話3 -->
+    <div class="bg-gradient-to-r from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
+      <div class="flex items-center gap-2 mb-3">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-purple-600"></i>
+        <span class="font-bold text-purple-800">たとえ③：代替調剤のイメージ</span>
+      </div>
+      <div class="space-y-2 text-gray-700 text-sm">
+        <p><strong>ジェネリック</strong>への変更は「同じ棚の別メーカー商品に変える」ようなイメージ。処方の仕組み上、条件を満たせば変更できます。</p>
+        <p><strong>バイオシミラー</strong>は「別の棚の商品」。日本では先行バイオ医薬品とバイオシミラーには別々の一般名がつくため、薬剤師が勝手に入れ替えることは原則ありません。<strong>医師の処方に従います。</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ ジェネリック詳細 -->
+  <div class="section-card" id="generic-detail">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="pill" class="w-6 h-6 text-teal-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">ジェネリック医薬品とは</h2>
+        <p class="text-gray-500 text-sm">低分子の後発医薬品</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/rookie_panda_worried.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          ジェネリックって「同じ有効成分だから大丈夫」と説明してますが、
+          患者さんに「本当に効くの？」と聞かれると毎回ドキドキします。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/senior_panda.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          「同じ有効成分で、体内での効き方が同等と確認された薬です」が正確な説明です。
+          「生物学的同等性試験」という血中濃度の試験をクリアしたものだけが承認されます。
+        </p>
+      </div>
+    </div>
+
+    <ul class="space-y-3">
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700"><strong>有効成分は先発品と同一</strong>（化学構造が完全に一致）</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700"><strong>生物学的同等性試験</strong>で血中濃度が同等と証明されている</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700"><strong>添加物は異なる</strong>場合がある（アレルギー歴がある場合は確認を）</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700">条件を満たせば<strong>変更調剤が可能</strong>（処方の書き方・施設のルールによる）</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ⑦ バイオシミラー詳細 -->
+  <div class="section-card" id="biosimilar-detail">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="flask-conical" class="w-6 h-6 text-sky-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">バイオシミラーとは</h2>
+        <p class="text-gray-500 text-sm">生物由来の高分子製剤の後続品</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/rookie_panda_worried.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          「ほぼ同等」ってあいまいな感じがして…患者さんに大丈夫って言えるか心配です。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/senior_panda_serious.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          「ほぼ同等」というのは「あいまいに認めた」ではなく、
+          「科学的に丁寧に検証した結果、患者さんに影響のある差はない」と確認した、という意味です。
+          ジェネリックが「完全コピー」できるのは、分子が小さくてシンプルだからこそ。
+          バイオ製剤はあまりにも大きく複雑で、完全コピー自体が不可能なんです。
+        </p>
+      </div>
+    </div>
+
+    <ul class="space-y-3 mb-6">
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700"><strong>生きた細胞を使って製造</strong>（製品によって使う細胞の種類は異なります）</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700">品質・非臨床・臨床の<strong>比較試験</strong>で先行品との同等性を証明</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700"><strong>免疫原性（抗体ができやすさ）</strong>も評価されている</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+        <span class="text-gray-700">承認後も<strong>製造販売後調査</strong>が続く製品もある</span>
+      </li>
+    </ul>
+
+    <!-- バイオシミラーの例 -->
+    <div class="bg-sky-50 p-4 rounded-xl border border-sky-200">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="info" class="w-5 h-5 text-sky-600"></i>
+        <span class="font-bold text-sky-700 text-sm">バイオシミラーの代表例</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 text-sm text-gray-700">
+        <div>・インスリン製剤</div>
+        <div>・エリスロポエチン（EPO）</div>
+        <div>・TNF阻害薬（例：エタネルセプトなど）</div>
+        <div>・抗VEGF抗体</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ 代替調剤のルール -->
+  <div class="section-card" id="substitution">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="clipboard-list" class="w-6 h-6 text-orange-600"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">代替調剤のルール（日本）</h2>
+        <p class="text-gray-500 text-sm">ジェネリックとバイオシミラーでは違う</p>
+      </div>
+    </div>
+
+    <!-- フローチャート -->
+    <div class="flex flex-col md:flex-row gap-4 items-stretch mb-6">
+      <div class="flex-1 bg-teal-50 border-2 border-teal-300 rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="pill" class="w-5 h-5 text-teal-600"></i>
+          <span class="font-bold text-teal-700">ジェネリック</span>
+        </div>
+        <div class="text-sm space-y-2 text-gray-700">
+          <div class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"></i>
+            <span>一般名処方や変更可の処方なら、薬剤師が<strong>別メーカー品に変更</strong>できる場合がある</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"></i>
+            <span>有効成分が<strong>同一成分・同一規格</strong>として整理されているため</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center text-gray-300">
+        <i data-lucide="arrow-right" class="w-8 h-8 hidden md:block"></i>
+        <i data-lucide="arrow-down" class="w-8 h-8 md:hidden"></i>
+      </div>
+
+      <div class="flex-1 bg-red-50 border-2 border-red-300 rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-3">
+          <i data-lucide="flask-conical" class="w-5 h-5 text-red-600"></i>
+          <span class="font-bold text-red-700">バイオシミラー</span>
+        </div>
+        <div class="text-sm space-y-2 text-gray-700">
+          <div class="flex items-start gap-2">
+            <i data-lucide="x" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span>先行バイオ品とバイオシミラーは<strong>別々の一般名</strong>が付く</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i data-lucide="x" class="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5"></i>
+            <span>薬剤師が「同じ成分の別製品」として<strong>機械的に代替することは原則としてない</strong></span>
+          </div>
+          <div class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5"></i>
+            <span><strong>医師の処方</strong>に従って調剤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div class="flex items-center gap-2 mb-2">
+        <i data-lucide="triangle-alert" class="w-5 h-5 text-orange-600"></i>
+        <span class="font-bold text-orange-700">患者さんへの説明のポイント</span>
+      </div>
+      <p class="text-sm text-gray-700">
+        「バイオシミラーに変わりましたが、これは医師が処方を変えたためです。薬局が勝手に変えたわけではありません」と伝えると安心してもらえます。
+        また、<strong>切り替え後に気になる症状が出たら必ず報告してもらう</strong>よう伝えましょう。
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑨ 免疫原性 -->
+  <div class="section-card" id="immunogenicity">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+        <i data-lucide="shield-alert" class="w-6 h-6 text-red-500"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">免疫原性とは</h2>
+        <p class="text-gray-500 text-sm">バイオ製剤特有の注意点</p>
+      </div>
+    </div>
+
+    <div class="term-explain">
+      <div class="flex items-start gap-3">
+        <i data-lucide="lightbulb" class="w-7 h-7 text-teal-500 flex-shrink-0 mt-0.5"></i>
+        <div>
+          <div class="term-word text-lg font-bold">「免疫原性」とは？</div>
+          <div class="text-base mt-1 text-gray-700">
+            体がバイオ製剤のタンパク質を「初めて見るもの」として反応することがある性質のこと。<br>
+            <span class="font-bold text-teal-700">多くの方には問題ありません</span>が、まれに薬の効きに影響したりアレルギー様の反応が出ることがあるため、先行品もバイオシミラーも承認の際・使用後ともに確認が行われています。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200 mb-4">
+      <p class="text-sm text-gray-700">
+        <strong>患者さんへの平易な説明例：</strong><br>
+        「この薬はタンパク質でできているので、まれに体が"知らないタンパク質が来た"と反応することがあります。
+        そうなると薬が効きにくくなることがあるため、承認の際も、使い始めた後も、そういった反応がないかを確認しています。」
+      </p>
+    </div>
+
+    <div class="visit-box">
+      <div class="flex items-center gap-2 mb-3">
+        <i data-lucide="hospital" class="w-5 h-5 text-red-600"></i>
+        <span class="font-bold text-red-700">こんな症状が出たらすぐに連絡を</span>
+      </div>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>注射部位の腫れ・痛みがひどくなる・長引く</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>急なじんましん・発疹・息苦しさ（アナフィラキシー様症状）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+          <span>これまでより薬の効きが悪くなったと感じる</span>
+        </li>
+      </ul>
+      <p class="mt-3 text-xs text-red-600 font-medium">
+        ※ 心配なことはいつでも薬局・処方医にご相談ください
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑩ まとめ -->
+  <div class="section-card" id="summary">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-sky-600 rounded-xl flex items-center justify-center">
+        <i data-lucide="check-circle" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">まとめ</h2>
+        <p class="text-gray-500 text-sm">これで患者さんに説明できます</p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/senior_panda.png" alt="センパイさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble senior-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-teal-700">センパイさん:</span><br>
+          整理すると、患者さんへのポイントは3つです。<br>
+          ①ジェネリックとバイオシミラーは別物、②どちらも国が承認した安全な薬、
+          ③バイオシミラーは薬局が勝手に変えない。この3点を押さえれば大丈夫です。
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-start gap-4 mb-6">
+      <img src="./images/rookie_panda_happy.png" alt="ルーキーさん" class="w-20 h-20 object-contain flex-shrink-0">
+      <div class="char-bubble rookie-bubble flex-1">
+        <p class="text-base">
+          <span class="font-bold text-amber-700">ルーキーさん:</span><br>
+          「楽譜のCD」と「オーケストラの演奏」のたとえ、これなら患者さんにも伝わりそうです！
+          自信を持って説明できます。ありがとうございました！
+        </p>
+      </div>
+    </div>
+
+    <!-- 薬剤師チェックリスト -->
+    <div class="bg-gradient-to-r from-teal-50 to-sky-50 p-5 rounded-xl border border-teal-200 mb-4">
+      <h3 class="font-bold text-teal-800 mb-3 flex items-center gap-2">
+        <i data-lucide="list-checks" class="w-5 h-5"></i>
+        薬剤師チェックリスト
+      </h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>ジェネリックとバイオシミラーは「似ているが別カテゴリ」と伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>どちらも国の審査で安全性・有効性が確認されていると伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>バイオシミラーは医師の処方に従う旨を伝えた</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5"></i>
+          <span>切り替え後に気になる症状があればすぐ連絡するよう伝えた</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 患者さん向け行動リスト -->
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
+      <h3 class="font-bold text-amber-800 mb-3 flex items-center gap-2">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        患者さんへ：これだけ覚えれば大丈夫
+      </h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+          <span>お薬手帳に薬の名前を記録しておきましょう</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+          <span>薬の名前が変わったときは、薬剤師に理由を確認してください</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+          <span>気になる症状（かゆみ・発疹・効きが悪い気がする等）はすぐ薬局か病院に連絡を</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i data-lucide="check" class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5"></i>
+          <span>「安いから不安」という心配は薬剤師に何でも聞いてください</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer class="bg-gray-100 border-t border-gray-200 py-6 mt-4">
+  <div class="max-w-3xl mx-auto px-4 text-xs text-gray-500 space-y-1">
+    <p>この図解は服薬指導の参考資料です。個々の患者さんへの対応は、最新の添付文書・処方内容・医師の指示に従ってください。</p>
+    <p>参考：PMDA 後発医薬品・バイオ後続品の審査情報 / 厚生労働省 バイオ後続品（バイオシミラー）理解促進サイト</p>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
