@@ -214,6 +214,16 @@ def debug_search():
     })
 
 
+@app.route("/debug-new", methods=["GET"])
+def debug_new():
+    """最新Newフラグ品目の確認用エンドポイント"""
+    items = dsjp.get_new_items()
+    return jsonify({
+        "count": len(items),
+        "items": items[:10],
+    })
+
+
 @app.route("/debug-columns", methods=["GET"])
 def debug_columns():
     """Excelの列構造確認用エンドポイント（列名と先頭3行の中身を表示）"""
