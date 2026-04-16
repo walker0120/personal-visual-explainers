@@ -94,6 +94,8 @@ def handle_message(event: MessageEvent):
         try:
             if user_text in ("今日の情報", "新着", "更新"):
                 texts = [fetch_daily_update()]
+            elif user_text == "最新":
+                texts = fetch_new_items()
             else:
                 texts = fetch_drug_search(user_text)
             push_api = get_messaging_api()
@@ -116,6 +118,13 @@ def fetch_drug_search(keyword: str) -> list:
     return dsjp.format_search_result(keyword, results)
 
 
+def fetch_new_items() -> list:
+    """最新更新（Newフラグあり）品目を取得してフォーマット"""
+    logger.info("最新更新品目を取得中...")
+    items = dsjp.get_new_items()
+    return dsjp.format_new_items(items)
+
+
 def fetch_daily_update() -> str:
     """本日の出荷調整品目一覧を取得してフォーマット"""
     logger.info("更新履歴を取得中...")
@@ -136,7 +145,8 @@ def build_help_message() -> str:
         "※一般名（成分名）でも検索できます\n"
         "　例：アムロジピン、アモキシシリン\n\n"
         "【コマンド】\n"
-        "　「今日の情報」→ 本日の調整品目一覧\n"
+        "　「最新」→ 今回の新着更新品目\n"
+        "　「今日の情報」→ 出荷調整中の品目一覧\n"
         "　「ヘルプ」→ この画面\n"
         "━━━━━━━━━━━━━━━\n"
         "厚労省リスト更新時に自動通知します"

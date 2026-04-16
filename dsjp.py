@@ -41,6 +41,7 @@ _COL_DEFAULTS = {
     "maker":      6,   # ⑦製造販売業者名
     "target":     11,  # ⑫出荷対応の状況
     "status":     11,  # ⑫出荷対応の状況（①通常出荷/②限定出荷/③供給停止）
+    "new_flag":   20,  # 今回掲載時の更新有無（Newと表示される列）
 }
 
 # 各フィールドを列名から特定するためのキーワード
@@ -51,6 +52,7 @@ _COL_KEYWORDS = {
     "maker":      ["製造販売業者名"],  # 「製造販売業者の〜」列と区別するため「名」まで含める
     "target":     ["出荷対応"],
     "status":     ["出荷対応"],
+    "new_flag":   ["更新有無"],       # 今回掲載時の更新有無
 }
 
 
@@ -268,6 +270,46 @@ def get_diff_updates() -> dict:
     return diff
 
 
+def get_new_items() -> list:
+    """今回の更新でNewがついた品目一覧を返す（「最新」コマンド用）"""
+    df = _get_df()
+    if df.empty:
+        return []
+
+    cm = _get_col_map()
+    new_flag_col = cm.get("new_flag", 20)
+    col_flag = df.iloc[:, new_flag_col].astype(str)
+    mask = col_flag.str.contains("New", na=False, case=False, regex=False)
+    new_rows = df[mask]
+
+    results = []
+    for _, row in new_rows.iterrows():
+        item = _parse_row(row)
+        if item["name"]:
+            results.append(item)
+
+    return results
+
+
+def format_new_items(items: list) -> list:
+    """最新更新品目をLINEメッセージ用にフォーマット。list[str]を返す"""
+    today_str = date.today().strftime("%Y/%m/%d")
+
+    if not items:
+        return [
+            f"📋 最新の更新情報（{today_str}現在）\n"
+            "━━━━━━━━━━━━━━━\n"
+            "現在、新着の更新情報はありません。\n"
+            "出典：厚生労働省"
+        ]
+
+    item_blocks = [_build_item_block(item) for item in items]
+    header_template = f"📋 最新の更新情報{{page_label}}（{today_str}現在）\n━━━━━━━━━━━━━━━"
+    footer = "\n\n━━━━━━━━━━━━━━━\n出典：厚生労働省"
+
+    return _split_into_pages(item_blocks, header_template, footer)
+
+
 def get_update_history(limit: int = 50) -> list:
     """通常出荷以外の品目一覧を返す（手動確認コマンド用）"""
     df = _get_df()
@@ -365,7 +407,12 @@ def format_search_result(keyword: str, results: list) -> list:
     item_blocks = [_build_item_block(item) for item in sorted_results]
     today_str = date.today().strftime("%Y/%m/%d")
     header_template = f"🔍 「{keyword}」の検索結果{{page_label}}\n━━━━━━━━━━━━━━━"
-    footer = f"\n\n━━━━━━━━━━━━━━━\n出典：厚生労働省（{today_str}現在）"
+    footer = (
+        f"\n\n━━━━━━━━━━━━━━━\n"
+        f"出典：厚生労働省（{today_str}現在）\n"
+        "※通常出荷でも実際の入手状況が\n"
+        "　異なる場合があります"
+    )
 
     return _split_into_pages(item_blocks, header_template, footer)
 
