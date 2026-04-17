@@ -372,15 +372,15 @@ def _preload_excel():
 
 # ── 起動 ──────────────────────────────────────────
 if __name__ == "__main__":
-    favorites.init_db()
     scheduler = start_scheduler()
     import threading
     threading.Thread(target=_preload_excel, daemon=True).start()
+    threading.Thread(target=favorites.init_db, daemon=True).start()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 else:
     # Gunicorn経由で起動する場合もスケジューラーを開始
-    favorites.init_db()
     scheduler = start_scheduler()
     import threading
     threading.Thread(target=_preload_excel, daemon=True).start()
+    threading.Thread(target=favorites.init_db, daemon=True).start()
