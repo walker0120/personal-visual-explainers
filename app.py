@@ -26,6 +26,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import pytz
 
 import dsjp
+import favorites
 
 # ── ログ設定 ──────────────────────────────────────
 logging.basicConfig(
@@ -76,10 +77,51 @@ def handle_message(event: MessageEvent):
     api = get_messaging_api()
 
     if user_text in ("ヘルプ", "help", "？", "?"):
-        # ヘルプはすぐ返せるので同期処理
         api.reply_message(ReplyMessageRequest(
             reply_token=reply_token,
             messages=[TextMessage(text=build_help_message())],
+        ))
+        return
+
+    if user_text == "お気に入り":
+        api.reply_message(ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[TextMessage(text="📋 取得中...")],
+        ))
+        def _list_and_push():
+            try:
+                msg = build_favorites_list(user_id)
+                get_messaging_api().push_message(PushMessageRequest(
+                    to=user_id,
+                    messages=[TextMessage(text=msg)],
+                ))
+            except Exception as e:
+                logger.error(f"お気に入り一覧pushエラー: {e}")
+        import threading
+        threading.Thread(target=_list_and_push, daemon=True).start()
+        return
+
+    if user_text.startswith("登録 "):
+        drug_name = user_text[3:].strip()
+        if drug_name:
+            msg = favorites.add_favorite(user_id, drug_name)
+        else:
+            msg = "登録する薬の名前を入力してください。\n例：登録 オーグメンチン"
+        api.reply_message(ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[TextMessage(text=msg)],
+        ))
+        return
+
+    if user_text.startswith("削除 "):
+        drug_name = user_text[3:].strip()
+        if drug_name:
+            msg = favorites.remove_favorite(user_id, drug_name)
+        else:
+            msg = "削除する薬の名前を入力してください。\n例：削除 オーグメンチン"
+        api.reply_message(ReplyMessageRequest(
+            reply_token=reply_token,
+            messages=[TextMessage(text=msg)],
         ))
         return
 
@@ -132,6 +174,28 @@ def fetch_daily_update() -> str:
     return dsjp.format_daily_update(updates)
 
 
+def build_favorites_list(user_id: str) -> str:
+    """お気に入り一覧と現在のステータスをまとめたメッセージを返す"""
+    items = favorites.list_favorites(user_id)
+    if not items:
+        return (
+            "⭐ お気に入り一覧\n"
+            "━━━━━━━━━━━━━━━\n"
+            "まだ登録されていません。\n\n"
+            "登録方法：\n"
+            "　登録 オーグメンチン"
+        )
+
+    lines = ["⭐ お気に入り一覧", "━━━━━━━━━━━━━━━"]
+    for item in items:
+        drug = item["drug_name"]
+        status = item["last_status"] or "未取得"
+        lines.append(f"💊 {drug}\n   {status}")
+    lines.append("━━━━━━━━━━━━━━━")
+    lines.append("削除：削除 薬品名")
+    return "\n".join(lines)
+
+
 def build_help_message() -> str:
     return (
         "💊 DSJP出荷調整ボット\n"
@@ -147,6 +211,9 @@ def build_help_message() -> str:
         "【コマンド】\n"
         "　「最新」→ 今回の新着更新品目\n"
         "　「今日の情報」→ 出荷調整中の品目一覧\n"
+        "　「お気に入り」→ 登録薬の一覧と現在のステータス\n"
+        "　「登録 薬品名」→ お気に入りに追加\n"
+        "　「削除 薬品名」→ お気に入りから削除\n"
         "　「ヘルプ」→ この画面\n"
         "━━━━━━━━━━━━━━━\n"
         "厚労省リスト更新時に自動通知します"
@@ -161,23 +228,69 @@ def check_and_notify():
         diff = dsjp.get_diff_updates()
         if not diff["added"] and not diff["changed"] and not diff["recovered"]:
             logger.info("変化なし: 通知スキップ")
-            return
-
-        texts = dsjp.format_diff_notification(diff)
-        if not texts:
-            return
-
-        api = get_messaging_api()
-        for text in texts[:5]:
-            api.push_message(
-                PushMessageRequest(
-                    to=MY_LINE_USER_ID,
-                    messages=[TextMessage(text=text)],
-                )
-            )
-        logger.info(f"更新通知送信完了: {len(texts)}件のメッセージ")
+        else:
+            texts = dsjp.format_diff_notification(diff)
+            if texts:
+                api = get_messaging_api()
+                for text in texts[:5]:
+                    api.push_message(
+                        PushMessageRequest(
+                            to=MY_LINE_USER_ID,
+                            messages=[TextMessage(text=text)],
+                        )
+                    )
+                logger.info(f"更新通知送信完了: {len(texts)}件のメッセージ")
     except Exception as e:
         logger.error(f"更新チェック失敗: {e}")
+
+    # お気に入り薬のステータス変化チェック
+    check_favorites_and_notify()
+
+
+def check_favorites_and_notify():
+    """登録済みお気に入り薬のステータスをチェックし、変化があれば通知"""
+    all_favs = favorites.get_all_favorites()
+    if not all_favs:
+        return
+
+    logger.info(f"お気に入りチェック: {len(all_favs)}件")
+    api = get_messaging_api()
+
+    for fav in all_favs:
+        user_id = fav["user_id"]
+        drug_name = fav["drug_name"]
+        last_status = fav["last_status"]
+
+        try:
+            results = dsjp.search_drug(drug_name)
+            if not results:
+                current_status = "リストに記載なし"
+            else:
+                current_status = results[0].get("status", "不明")
+
+            if last_status is None:
+                favorites.update_last_status(user_id, drug_name, current_status)
+                logger.info(f"初回ステータス記録: {drug_name} → {current_status}")
+                continue
+
+            if current_status != last_status:
+                msg = (
+                    f"⭐ お気に入り薬のステータスが変わりました\n"
+                    f"━━━━━━━━━━━━━━━\n"
+                    f"💊 {drug_name}\n"
+                    f"　変更前：{last_status}\n"
+                    f"　変更後：{current_status}\n"
+                    f"━━━━━━━━━━━━━━━\n"
+                    f"出典：厚生労働省"
+                )
+                api.push_message(PushMessageRequest(
+                    to=user_id,
+                    messages=[TextMessage(text=msg)],
+                ))
+                favorites.update_last_status(user_id, drug_name, current_status)
+                logger.info(f"お気に入り変化通知: {drug_name} {last_status} → {current_status}")
+        except Exception as e:
+            logger.error(f"お気に入りチェックエラー ({drug_name}): {e}")
 
 
 # ── スケジューラー設定 ─────────────────────────────
@@ -186,12 +299,13 @@ def start_scheduler():
     scheduler = BackgroundScheduler(timezone=jst)
     scheduler.add_job(
         check_and_notify,
-        trigger="interval",
-        hours=6,
+        trigger="cron",
+        hour=14,
+        minute=0,
         id="update_check",
     )
     scheduler.start()
-    logger.info("スケジューラー起動: 6時間ごとに更新チェック")
+    logger.info("スケジューラー起動: 毎日14時(JST)に更新チェック")
     return scheduler
 
 
@@ -258,6 +372,7 @@ def _preload_excel():
 
 # ── 起動 ──────────────────────────────────────────
 if __name__ == "__main__":
+    favorites.init_db()
     scheduler = start_scheduler()
     import threading
     threading.Thread(target=_preload_excel, daemon=True).start()
@@ -265,6 +380,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=port)
 else:
     # Gunicorn経由で起動する場合もスケジューラーを開始
+    favorites.init_db()
     scheduler = start_scheduler()
     import threading
     threading.Thread(target=_preload_excel, daemon=True).start()
